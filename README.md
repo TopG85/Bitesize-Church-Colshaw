@@ -24,3 +24,12 @@ This project is designed to create a single-page website for Bitesize Church, a 
 4. The site updates automatically as content is changed in the admin area.
 
 This setup ensures the site is both a valuable learning project and easy to maintain for non-technical users.
+
+## Latest Updates (21 March 2026)
+
+- Added `home/models.py` with Django/Wagtail models for all homepage sections (hero, about, brunch, events, location, contact, brunch dates, etc.)
+- Created `home/templates/home/home_page.html` to render all dynamic content sections using template variables and Wagtail tags
+- Ran `python manage.py makemigrations` and `python manage.py migrate` to apply database changes
+- Committed and pushed all changes to GitHub
+
+The homepage is now fully dynamic and editable via the Django/Wagtail admin interface, allowing non-coders to update all content easily.
