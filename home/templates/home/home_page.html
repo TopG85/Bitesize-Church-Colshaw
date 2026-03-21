@@ -1,21 +1,106 @@
 {% extends "base.html" %}
-{% load static %}
-
-{% block body_class %}template-homepage{% endblock %}
-
-{% block extra_css %}
-
-{% comment %}
-Delete the line below if you're just getting started and want to remove the welcome screen!
-{% endcomment %}
-<link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
-{% endblock extra_css %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 {% block content %}
+<nav>
+    <a href="#about">About</a>
+    <a href="#brunch">Bitesize Brunch</a>
+    <a href="#dates">Dates</a>
+    <a href="#location">Location</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-{% comment %}
-Delete the line below if you're just getting started and want to remove the welcome screen!
-{% endcomment %}
-{% include 'home/welcome_page.html' %}
+<section id="hero">
+    <h1>{{ page.hero_title }}</h1>
+    <p>{{ page.hero_tagline }}</p>
 
-{% endblock content %}
+    {% if page.hero_button_text and page.hero_button_link %}
+        <p><a href="{{ page.hero_button_link }}">{{ page.hero_button_text }}</a></p>
+    {% endif %}
+
+    {% if page.hero_image %}
+        {% image page.hero_image fill-1400x700 as hero_img %}
+        <img src="{{ hero_img.url }}" alt="{{ page.hero_title }}">
+    {% endif %}
+</section>
+
+<section id="about">
+    <h2>{{ page.about_heading }}</h2>
+    {{ page.about_text|richtext }}
+</section>
+
+<section id="brunch">
+    <h2>{{ page.feature_heading }}</h2>
+    {{ page.feature_text|richtext }}
+
+    {% if page.feature_image %}
+        {% image page.feature_image fill-1000x600 as feature_img %}
+        <img src="{{ feature_img.url }}" alt="{{ page.feature_heading }}">
+    {% endif %}
+</section>
+
+<section id="dates">
+    <h2>{{ page.events_heading }}</h2>
+    {{ page.events_intro|richtext }}
+
+    {% if page.brunch_dates.all %}
+        <ul>
+            {% for item in page.brunch_dates.all %}
+                <li>
+                    <strong>{{ item.event_date|date:"j F Y" }}</strong>
+                    {% if item.title %}
+                        — {{ item.title }}
+                    {% endif %}
+                    {% if item.note %}
+                        <div>{{ item.note }}</div>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</section>
+
+<section id="location">
+    <h2>{{ page.location_heading }}</h2>
+    {{ page.location_text|richtext }}
+
+    {% if page.address %}
+        <p><strong>Address:</strong><br>{{ page.address|linebreaksbr }}</p>
+    {% endif %}
+
+    {% if page.directions_text %}
+        <div>
+            <strong>Directions:</strong>
+            {{ page.directions_text|richtext }}
+        </div>
+    {% endif %}
+
+    {% if page.parking_text %}
+        <div>
+            <strong>Parking:</strong>
+            {{ page.parking_text|richtext }}
+        </div>
+    {% endif %}
+
+    {% if page.map_url %}
+        <p><a href="{{ page.map_url }}" target="_blank" rel="noopener">View map</a></p>
+    {% endif %}
+</section>
+
+<section id="contact">
+    <h2>{{ page.contact_heading }}</h2>
+    {{ page.contact_text|richtext }}
+
+    {% if page.contact_email %}
+        <p><a href="mailto:{{ page.contact_email }}">{{ page.contact_email }}</a></p>
+    {% endif %}
+
+    {% if page.facebook_url %}
+        <p><a href="{{ page.facebook_url }}" target="_blank" rel="noopener">Facebook</a></p>
+    {% endif %}
+</section>
+
+<footer>
+    <p>{{ page.footer_text }}</p>
+</footer>
+{% endblock %}
