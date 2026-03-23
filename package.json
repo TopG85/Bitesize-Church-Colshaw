@@ -1,0 +1,28 @@
+{
+  "name": "bitesize-church-colshaw",
+  "version": "1.0.0",
+  "description": "Create a single page website for Bitesize Church, a friendly and welcoming community church based in Colshaw. The site should have the following sections: a warm hero section with a tagline and call to action, an about section explaining what Bitesize Church is, a Bitesize Brunch section explaining their monthly get-together events, an events section showing upcoming 2026 brunch dates, a visit us section with location and what to expect when you arrive, and a contact section with a simple enquiry form. The tone should be friendly, warm and inclusive. The brand colours are red, golden yellow and white.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TopG85/Bitesize-Church-Colshaw.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TopG85/Bitesize-Church-Colshaw/issues"
+  },
+  "homepage": "https://github.com/TopG85/Bitesize-Church-Colshaw#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.2.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.2"
+  }
+}

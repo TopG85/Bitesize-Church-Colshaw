@@ -1,106 +1,286 @@
-{% extends "base.html" %}
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load static wagtailcore_tags wagtailimages_tags date_extras %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bitesize Church</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
 
-{% block content %}
-<nav>
-    <a href="#about">About</a>
-    <a href="#brunch">Bitesize Brunch</a>
-    <a href="#dates">Dates</a>
-    <a href="#location">Location</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<section id="hero">
-    <h1>{{ page.hero_title }}</h1>
-    <p>{{ page.hero_tagline }}</p>
-
-    {% if page.hero_button_text and page.hero_button_link %}
-        <p><a href="{{ page.hero_button_link }}">{{ page.hero_button_text }}</a></p>
-    {% endif %}
-
-    {% if page.hero_image %}
-        {% image page.hero_image fill-1400x700 as hero_img %}
-        <img src="{{ hero_img.url }}" alt="{{ page.hero_title }}">
-    {% endif %}
-</section>
-
-<section id="about">
-    <h2>{{ page.about_heading }}</h2>
-    {{ page.about_text|richtext }}
-</section>
-
-<section id="brunch">
-    <h2>{{ page.feature_heading }}</h2>
-    {{ page.feature_text|richtext }}
-
-    {% if page.feature_image %}
-        {% image page.feature_image fill-1000x600 as feature_img %}
-        <img src="{{ feature_img.url }}" alt="{{ page.feature_heading }}">
-    {% endif %}
-</section>
-
-<section id="dates">
-    <h2>{{ page.events_heading }}</h2>
-    {{ page.events_intro|richtext }}
-
-    {% if page.brunch_dates.all %}
-        <ul>
-            {% for item in page.brunch_dates.all %}
-                <li>
-                    <strong>{{ item.event_date|date:"j F Y" }}</strong>
-                    {% if item.title %}
-                        — {{ item.title }}
-                    {% endif %}
-                    {% if item.note %}
-                        <div>{{ item.note }}</div>
-                    {% endif %}
-                </li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-</section>
-
-<section id="location">
-    <h2>{{ page.location_heading }}</h2>
-    {{ page.location_text|richtext }}
-
-    {% if page.address %}
-        <p><strong>Address:</strong><br>{{ page.address|linebreaksbr }}</p>
-    {% endif %}
-
-    {% if page.directions_text %}
-        <div>
-            <strong>Directions:</strong>
-            {{ page.directions_text|richtext }}
+    <!-- Tailwind Play CDN -->
+       <script src="https://cdn.tailwindcss.com"></script>
+       <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Luckiest+Guy&family=Special+Elite&display=swap" rel="stylesheet">
+       <!-- Any other head content you need -->
+  </head>
+  <body>
+    <body style="font-family: 'Special Elite', cursive;">
+    <nav class="navbar-red shadow-lg py-6 px-10 mb-0 text-xl" style="min-height: 5.5rem;">
+      <div class="container mx-auto flex items-center justify-between">
+        <div class="flex items-center">
+          <img
+            src="{% static 'images/382980107_153910111126206_2093967587040039248_n.webp' %}"
+            alt="Bitesize Church Logo"
+            class="h-12 w-12 rounded-full mr-3 border-2 bg-white object-cover"
+            style="background: #fff"
+          />
+          <span class="text-white text-2xl font-bold tracking-wide"
+            >Bitesize Church</span
+          >
         </div>
-    {% endif %}
-
-    {% if page.parking_text %}
-        <div>
-            <strong>Parking:</strong>
-            {{ page.parking_text|richtext }}
+        <div class="flex gap-12 text-xl">
+          <a href="#about" class="text-white font-semibold transition-colors"
+            >About</a
+          >
+          <a href="#dates" class="text-white font-semibold transition-colors"
+            >Dates</a
+          >
+          <a href="#location" class="text-white font-semibold transition-colors"
+            >Location</a
+          >
+          <a href="#contact" class="text-white font-semibold transition-colors"
+            >Contact</a
+          >
         </div>
-    {% endif %}
+      </div>
+    </nav>
 
-    {% if page.map_url %}
-        <p><a href="{{ page.map_url }}" target="_blank" rel="noopener">View map</a></p>
-    {% endif %}
+    <header id="hero" class="bg-primary text-white py-0 mb-8 mt-0">
+      <div class="w-full">
+        <img
+          src="{% static 'images/475138469_466452223205325_2859215577144659852_n.webp' %}"
+          alt="Hero Image"
+          class="w-full h-auto"
+        />
+      </div>
+      <div class="container mx-auto text-center py-12">
+        <h1 class="text-4xl font-bold mb-2">{{ page.hero_title }}</h1>
+        <p class="text-xl mb-4">{{ page.hero_tagline }}</p>
+        {% if page.hero_button_text and page.hero_button_link %}
+        <a
+          class="inline-block navbar-red text-white font-semibold px-6 py-2 rounded shadow hover:bg-primary"
+          href="{{ page.hero_button_link }}"
+          >{{ page.hero_button_text }}</a
+        >
+        {% endif %}
+      </div>
+    </header>
+
+    <section id="about" class="py-12 mb-8">
+      <div class="container mx-auto">
+        <h2 class="text-2xl font-bold mb-4">{{ page.about_heading }}</h2>
+        <div class="mb-6">{{ page.about_text|richtext }}</div>
+        <h2 class="text-2xl font-bold mb-4">{{ page.feature_heading }}</h2>
+        <div>{{ page.feature_text|richtext }}</div>
+      </div>
+    </section>
+
+    <section id="dates" class="bg-white py-16 overflow-hidden">
+  <div class="mx-auto max-w-6xl px-6">
+    
+    <!-- Main Header -->
+    <header class="text-center mb-12">
+      <h1 class="text-5xl md:text-7xl font-extrabold mb-4 leading-none" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f;">
+        YOUR 2026<br>BITESIZE CHURCH<br>PLANNER
+      </h1>
+    </header>
+
+    <!-- Grid Container -->
+    <div class="relative py-10">
+      <!-- Yellow Background Banners (Placed behind the grid) -->
+      <div class="absolute inset-0 flex flex-col justify-between py-10 opacity-80 z-0 pointer-events-none">
+        <!-- Top strip: left-leaning jagged -->
+        <div class="w-[120%] -ml-[10%] h-48 mt-0" style="background: url('data:image/svg+xml;utf8,<svg width=\'100%\' height=\'100%\' viewBox=\'0 0 600 192\' xmlns=\'http://www.w3.org/2000/svg\'><polygon points=\'0,0 600,20 600,192 0,172\' fill=\'%23fde047\'/></svg>'); background-size: cover;"></div>
+        <!-- Middle strip: right-leaning jagged -->
+        <div class="w-[120%] -ml-[10%] h-48 mt-20" style="background: url('data:image/svg+xml;utf8,<svg width=\'100%\' height=\'100%\' viewBox=\'0 0 600 192\' xmlns=\'http://www.w3.org/2000/svg\'><polygon points=\'0,20 600,0 600,192 0,172\' fill=\'%23fde047\'/></svg>'); background-size: cover;"></div>
+        <!-- Bottom strip: zigzag/jagged -->
+        <div class="w-[120%] -ml-[10%] h-48 mt-20" style="background: url('data:image/svg+xml;utf8,<svg width=\'100%\' height=\'100%\' viewBox=\'0 0 600 192\' xmlns=\'http://www.w3.org/2000/svg\'><polygon points=\'0,10 100,30 200,0 300,40 400,10 500,30 600,0 600,192 0,172\' fill=\'%23fde047\'/></svg>'); background-size: cover;"></div>
+      </div>
+      <!-- The Calendar Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-16 justify-items-center relative z-10">
+        <!-- Jan -->
+        <article class="relative w-44 bg-white transform -rotate-2 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
+          <div class="w-full h-10 bg-red-600 flex items-center justify-center relative">
+            <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
+            <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
+            <span class="text-xs font-bold text-white tracking-widest">2026</span>
+          </div>
+          <div class="py-6 text-center">
+            <div class="text-6xl font-black text-red-600 leading-none" style="font-family: 'Baloo 2', sans-serif;">11</div>
+            <div class="text-xl font-black uppercase text-gray-900 mt-2">January</div>
+          </div>
+        </article>
+
+        <!-- Feb -->
+        <article class="relative w-44 bg-white transform rotate-1 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
+          <div class="w-full h-10 bg-red-600 flex items-center justify-center relative">
+            <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
+            <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
+            <span class="text-xs font-bold text-white tracking-widest">2026</span>
+          </div>
+          <div class="py-6 text-center">
+            <div class="text-6xl font-black text-red-600 leading-none" style="font-family: 'Baloo 2', sans-serif;">8</div>
+            <div class="text-xl font-black uppercase text-gray-900 mt-2">February</div>
+          </div>
+        </article>
+
+        <!-- Mar -->
+        <article class="relative w-44 bg-white transform -rotate-1 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
+          <div class="w-full h-10 bg-red-600 flex items-center justify-center relative">
+            <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
+            <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
+            <span class="text-xs font-bold text-white tracking-widest">2026</span>
+          </div>
+          <div class="py-6 text-center">
+            <div class="text-6xl font-black text-red-600 leading-none" style="font-family: 'Baloo 2', sans-serif;">8</div>
+            <div class="text-xl font-black uppercase text-gray-900 mt-2">March</div>
+          </div>
+        </article>
+
+        <!-- Apr -->
+        <article class="relative w-44 bg-white transform rotate-2 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
+          <div class="w-full h-10 bg-red-600 flex items-center justify-center relative">
+            <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
+            <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
+            <span class="text-xs font-bold text-white tracking-widest">2026</span>
+          </div>
+          <div class="py-6 text-center">
+            <div class="text-6xl font-black text-red-600 leading-none" style="font-family: 'Baloo 2', sans-serif;">12</div>
+            <div class="text-xl font-black uppercase text-gray-900 mt-2">April</div>
+          </div>
+        </article>
+
+        <!-- May -->
+        <article class="relative w-44 bg-white transform rotate-1 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
+          <div class="w-full h-10 bg-red-600 flex items-center justify-center relative">
+            <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
+            <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
+            <span class="text-xs font-bold text-white tracking-widest">2026</span>
+          </div>
+          <div class="py-6 text-center">
+            <div class="text-6xl font-black text-red-600 leading-none" style="font-family: 'Baloo 2', sans-serif;">10</div>
+            <div class="text-xl font-black uppercase text-gray-900 mt-2">May</div>
+          </div>
+        </article>
+
+        <!-- Jun -->
+        <article class="relative w-44 bg-white transform -rotate-2 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
+          <div class="w-full h-10 bg-red-600 flex items-center justify-center relative">
+            <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
+            <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
+            <span class="text-xs font-bold text-white tracking-widest">2026</span>
+          </div>
+          <div class="py-6 text-center">
+            <div class="text-6xl font-black text-red-600 leading-none" style="font-family: 'Baloo 2', sans-serif;">14</div>
+            <div class="text-xl font-black uppercase text-gray-900 mt-2">June</div>
+          </div>
+        </article>
+
+        <!-- Jul -->
+        <article class="relative w-44 bg-white transform rotate-1 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
+          <div class="w-full h-10 bg-red-600 flex items-center justify-center relative">
+            <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
+            <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
+            <span class="text-xs font-bold text-white tracking-widest">2026</span>
+          </div>
+          <div class="py-6 text-center">
+            <div class="text-6xl font-black text-red-600 leading-none" style="font-family: 'Baloo 2', sans-serif;">12</div>
+            <div class="text-xl font-black uppercase text-gray-900 mt-2">July</div>
+          </div>
+        </article>
+
+        <!-- Aug -->
+        <article class="relative w-44 bg-white transform -rotate-1 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
+          <div class="w-full h-10 bg-red-600 flex items-center justify-center relative">
+            <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
+            <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
+            <span class="text-xs font-bold text-white tracking-widest">2026</span>
+          </div>
+          <div class="py-6 text-center">
+            <div class="text-6xl font-black text-red-600 leading-none" style="font-family: 'Baloo 2', sans-serif;">9</div>
+            <div class="text-xl font-black uppercase text-gray-900 mt-2">August</div>
+          </div>
+        </article>
+
+        <!-- Sep -->
+        <article class="relative w-44 bg-white transform rotate-2 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
+          <div class="w-full h-10 bg-red-600 flex items-center justify-center relative">
+            <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
+            <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
+            <span class="text-xs font-bold text-white tracking-widest">2026</span>
+          </div>
+          <div class="py-6 text-center">
+            <div class="text-6xl font-black text-red-600 leading-none" style="font-family: 'Baloo 2', sans-serif;">13</div>
+            <div class="text-xl font-black uppercase text-gray-900 mt-2">September</div>
+          </div>
+        </article>
+
+        <!-- Oct -->
+        <article class="relative w-44 bg-white transform -rotate-1 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
+          <div class="w-full h-10 bg-red-600 flex items-center justify-center relative">
+            <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
+            <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
+            <span class="text-xs font-bold text-white tracking-widest">2026</span>
+          </div>
+          <div class="py-6 text-center">
+            <div class="text-6xl font-black text-red-600 leading-none" style="font-family: 'Baloo 2', sans-serif;">11</div>
+            <div class="text-xl font-black uppercase text-gray-900 mt-2">October</div>
+          </div>
+        </article>
+
+        <!-- Nov -->
+        <article class="relative w-44 bg-white transform rotate-1 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
+          <div class="w-full h-10 bg-red-600 flex items-center justify-center relative">
+            <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
+            <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
+            <span class="text-xs font-bold text-white tracking-widest">2026</span>
+          </div>
+          <div class="py-6 text-center">
+            <div class="text-6xl font-black text-red-600 leading-none" style="font-family: 'Baloo 2', sans-serif;">8</div>
+            <div class="text-xl font-black uppercase text-gray-900 mt-2">November</div>
+          </div>
+        </article>
+
+        <!-- Dec -->
+        <article class="relative w-44 bg-white transform rotate-2 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
+          <div class="w-full h-10 bg-red-600 flex items-center justify-center relative">
+            <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
+            <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
+            <span class="text-xs font-bold text-white tracking-widest">2026</span>
+          </div>
+          <div class="py-6 text-center">
+            <div class="text-6xl font-black text-red-600 leading-none" style="font-family: 'Baloo 2', sans-serif;">13</div>
+            <div class="text-xl font-black uppercase text-gray-900 mt-2">December</div>
+          </div>
+        </article>
+      </div> <!-- End Grid -->
+    </div>
+  </div>
 </section>
 
-<section id="contact">
-    <h2>{{ page.contact_heading }}</h2>
-    {{ page.contact_text|richtext }}
+    <section id="location" class="py-12 mb-8">
+      <div class="container mx-auto">
+        <h2 class="text-2xl font-bold mb-4">{{ page.location_heading }}</h2>
+        <div class="mb-6">{{ page.location_text|richtext }}</div>
+        {% if page.address %}
+        <p class="mb-2">
+          <strong>Address:</strong><br />{{ page.address|linebreaksbr }}
+        </p>
+        {% endif %} {% if page.directions_text %}
+        <div class="mb-2">
+          <strong>Directions:</strong>
+          {{ page.directions_text|richtext }}
+        </div>
+        {% endif %}
+      </div>
+    </section>
 
-    {% if page.contact_email %}
-        <p><a href="mailto:{{ page.contact_email }}">{{ page.contact_email }}</a></p>
-    {% endif %}
-
-    {% if page.facebook_url %}
-        <p><a href="{{ page.facebook_url }}" target="_blank" rel="noopener">Facebook</a></p>
-    {% endif %}
-</section>
-
-<footer>
-    <p>{{ page.footer_text }}</p>
-</footer>
-{% endblock %}
+    <section id="contact" class="bg-primary-soft text-primary py-12">
+      <div class="container mx-auto">
+        <h2 class="text-2xl font-bold mb-4">Contact</h2>
+        <p>Contact details or form here.</p>
+      </div>
+    </section>
+  </body>
+</html>

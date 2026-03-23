@@ -1,0 +1,12 @@
+/* Custom navbar red background */
+.navbar-red {
+	background-color: #B8351B !important;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom navbar red background */
+.navbar-red {
+	background-color: #B8351B !important;
+}

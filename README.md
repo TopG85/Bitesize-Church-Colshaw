@@ -25,11 +25,14 @@ This project is designed to create a single-page website for Bitesize Church, a 
 
 This setup ensures the site is both a valuable learning project and easy to maintain for non-technical users.
 
-## Latest Updates (21 March 2026)
+## Latest Updates (23 March 2026)
 
-- Added `home/models.py` with Django/Wagtail models for all homepage sections (hero, about, brunch, events, location, contact, brunch dates, etc.)
-- Created `home/templates/home/home_page.html` to render all dynamic content sections using template variables and Wagtail tags
-- Ran `python manage.py makemigrations` and `python manage.py migrate` to apply database changes
-- Committed and pushed all changes to GitHub
+- Updated the calendar main header to use the "Luckiest Guy" font from Google Fonts (closest free match to Wak by Rodrigo Typo)
+- Calendar cards now feature rounded corners, a strong 3D drop shadow, and yellow paper-strip backgrounds for a playful desk calendar look
+- All non-header text uses the "Special Elite" typewriter-style font for extra character
+- Navbar size increased for better visual impact
+- Tailwind CSS is now loaded via CDN for rapid UI development
+- Google Fonts (Baloo 2, Luckiest Guy, Special Elite) are integrated for custom typography
+- All changes are reflected in `home/templates/home/home_page.html`
 
-The homepage is now fully dynamic and editable via the Django/Wagtail admin interface, allowing non-coders to update all content easily.
+The homepage remains fully dynamic and editable via the Django/Wagtail admin interface, allowing non-coders to update all content easily.

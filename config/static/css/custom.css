@@ -1,0 +1,4 @@
+/* Custom navbar red background override */
+.navbar-red {
+  background-color: #B8351B !important;
+}

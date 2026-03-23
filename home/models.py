@@ -56,7 +56,7 @@ class HomePage(Page):
     location_text = RichTextField(blank=True)
     address = models.TextField(blank=True)
     directions_text = RichTextField(blank=True)
-    parking_text = RichTextField(blank=True)
+    parking_text = models.TextField(blank=True)
     map_url = models.URLField(blank=True)
 
     contact_heading = models.CharField(
