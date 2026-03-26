@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="{% static 'images/382980107_153910111126206_2093967587040039248_n.webp' %}" />
+
     <!-- Tailwind Play CDN -->
        <script src="https://cdn.tailwindcss.com"></script>
        <!-- Google Fonts -->
@@ -16,7 +19,7 @@
   </head>
   <body>
     <body style="font-family: 'Special Elite', cursive;">
-    <nav class="navbar-red shadow-lg py-6 px-10 mb-0 text-xl" style="min-height: 5.5rem;">
+    <nav class="shadow-lg py-6 px-10 mb-0 text-xl" style="min-height: 5.5rem; background-color: #d32f2f;">
       <div class="container mx-auto flex items-center justify-between">
         <div class="flex items-center">
           <img
@@ -25,7 +28,6 @@
             class="h-12 w-12 rounded-full mr-3 border-2 bg-white object-cover"
             style="background: #fff"
           />
-          <span class="text-white text-2xl font-bold tracking-wide">Bitesize Church</span>
         </div>
         <div class="flex gap-12 text-xl">
           <a href="#about" class="text-white font-semibold transition-colors"
@@ -44,44 +46,72 @@
       </div>
     </nav>
 
+
     <header id="hero" class="bg-primary text-white py-0 mb-8 mt-0">
-      <div class="w-full">
+      <div class="relative w-full overflow-hidden min-h-[700px] md:min-h-[900px] flex items-center justify-center">
         <img
-          src="{% static 'images/475138469_466452223205325_2859215577144659852_n.webp' %}"
-          alt="Hero Image"
-          class="w-full h-auto"
-        />
-      </div>
-      <div class="container mx-auto text-center py-12">
-        <h1 class="text-4xl font-bold mb-2">{{ page.hero_title }}</h1>
-        <p class="text-xl mb-4">{{ page.hero_tagline }}</p>
-        {% if page.hero_button_text and page.hero_button_link %}
-        <a
-          class="inline-block navbar-red text-white font-semibold px-6 py-2 rounded shadow hover:bg-primary"
-          href="{{ page.hero_button_link }}"
-          >{{ page.hero_button_text }}</a
-        >
-        {% endif %}
+          src="{% static 'images/bitesizechurch.webp' %}"
+          alt="Brunch Community Hero Image"
+          class="w-full h-[700px] md:h-[900px] object-cover rounded-b-3xl shadow-lg absolute inset-0 z-0"/>
+        <div class="absolute inset-0 flex flex-col items-center justify-center z-10">
+          <div class="px-8 py-10 md:px-16 md:py-14 text-center max-w-2xl mx-auto">
+              <h1 class="text-5xl md:text-7xl font-extrabold mb-4 drop-shadow-lg whitespace-nowrap" style="font-family: 'Luckiest Guy', cursive; color: #fff; letter-spacing: 2px; text-transform: lowercase;">{{ page.hero_title|lower }}</h1>
+              <p class="text-2xl mb-4 text-white font-semibold">Worship. Community. <span class="text-yellow-300 font-extrabold">Free Brunch for All!</span></p>
+              <p class="text-lg mb-8 text-white">{{ page.hero_tagline }}</p>
+              {% if page.hero_button_text and page.hero_button_link %}
+              <a
+                class="inline-block bg-red-600 text-white font-bold px-10 py-4 rounded-xl shadow-lg hover:bg-red-700 transition text-xl border-2 border-white"
+                href="{{ page.hero_button_link }}"
+                >{{ page.hero_button_text }}</a>
+              {% endif %}
+          </div>
+        </div>
       </div>
     </header>
 
-    <section id="about" class="py-12 mb-8">
-      <div class="container mx-auto">
-        <h2 class="text-2xl font-bold mb-4">{{ page.about_heading }}</h2>
-        <div class="mb-6">{{ page.about_text|richtext }}</div>
-        <h2 class="text-2xl font-bold mb-4">{{ page.feature_heading }}</h2>
-        <div>{{ page.feature_text|richtext }}</div>
+    <!-- About Section moved directly after Hero -->
+    <section id="about" class="py-16" style="background-color: #d32f2f;">
+      <div class="container mx-auto max-w-3xl">
+        <div class="bg-white rounded-3xl shadow-lg p-10 mb-10 border-l-8 border-yellow-400">
+          <h2 class="text-3xl font-extrabold mb-4" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f;">{{ page.about_heading }}</h2>
+          <div class="mb-8 text-lg text-gray-800">{{ page.about_text|richtext }}</div>
+          <h2 class="text-2xl font-bold mb-4" style="color: #d32f2f;">{{ page.feature_heading }}</h2>
+          <div class="text-lg text-gray-800">{{ page.feature_text|richtext }}</div>
+        </div>
       </div>
     </section>
+    <!-- White Divider -->
+    <div class="w-full h-8 bg-white"></div>
 
-    <section id="dates" class="bg-white py-16 overflow-hidden">
+      <!-- Why Bitesize? Section -->
+      <section id="why-bitesize" class="py-16 bg-yellow-400">
+        <div class="container mx-auto max-w-3xl">
+          <div class="bg-white rounded-3xl shadow-lg p-10 border-l-8 border-red-600">
+            <h2 class="text-3xl font-extrabold mb-4" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f;">
+              Why “Bitesize”?
+            </h2>
+            <p class="text-lg text-gray-800 mb-4">
+              Church and Christianity can sometimes feel overwhelming or intimidating—especially if you’re new or just curious. At Bitesize Church, we believe faith should be easy to explore, welcoming for everyone, and full of joy.
+            </p>
+            <p class="text-lg text-gray-800 mb-4">
+              That’s why we keep things simple, friendly, and relaxed. And yes, we share a free brunch together every time we meet—because good food brings people together and helps us connect.
+            </p>
+            <p class="text-lg text-gray-800">
+              Whether you’re a lifelong Christian, just starting to ask questions, or simply hungry for community (and brunch!), you’re welcome here.
+            </p>
+          </div>
+        </div>
+      </section>
+
+  <section id="dates" class="bg-white py-16 overflow-hidden">
   <div class="mx-auto max-w-6xl px-6">
     
     <!-- Main Header -->
     <header class="text-center mb-12">
-      <h1 class="text-5xl md:text-7xl font-extrabold mb-4 leading-none" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f;">
-        YOUR 2026<br>BITESIZE CHURCH<br>PLANNER
+      <h1 class="text-5xl md:text-7xl font-extrabold mb-4 leading-none" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f; text-transform: lowercase;">
+        your 2026<br>bitesize church<br>planner
       </h1>
+      <p class="text-lg md:text-2xl text-gray-700 mt-4 font-semibold">Second Sunday of every month</p>
     </header>
 
     <!-- Grid Container -->
@@ -99,7 +129,7 @@
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-16 justify-items-center relative z-10">
         <!-- Jan -->
         <article class="relative w-44 bg-white transform -rotate-2 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
-          <div class="w-full h-10 bg-red-600 flex items-center justify-center relative">
+          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #d32f2f;">
             <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="text-xs font-bold text-white tracking-widest">2026</span>
@@ -112,7 +142,7 @@
 
         <!-- Feb -->
         <article class="relative w-44 bg-white transform rotate-1 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
-          <div class="w-full h-10 bg-red-600 flex items-center justify-center relative">
+          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #d32f2f;">
             <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="text-xs font-bold text-white tracking-widest">2026</span>
@@ -125,7 +155,7 @@
 
         <!-- Mar -->
         <article class="relative w-44 bg-white transform -rotate-1 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
-          <div class="w-full h-10 bg-red-600 flex items-center justify-center relative">
+          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #d32f2f;">
             <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="text-xs font-bold text-white tracking-widest">2026</span>
@@ -138,7 +168,7 @@
 
         <!-- Apr -->
         <article class="relative w-44 bg-white transform rotate-2 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
-          <div class="w-full h-10 bg-red-600 flex items-center justify-center relative">
+          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #d32f2f;">
             <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="text-xs font-bold text-white tracking-widest">2026</span>
@@ -151,7 +181,7 @@
 
         <!-- May -->
         <article class="relative w-44 bg-white transform rotate-1 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
-          <div class="w-full h-10 bg-red-600 flex items-center justify-center relative">
+          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #d32f2f;">
             <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="text-xs font-bold text-white tracking-widest">2026</span>
@@ -164,7 +194,7 @@
 
         <!-- Jun -->
         <article class="relative w-44 bg-white transform -rotate-2 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
-          <div class="w-full h-10 bg-red-600 flex items-center justify-center relative">
+          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #d32f2f;">
             <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="text-xs font-bold text-white tracking-widest">2026</span>
@@ -177,7 +207,7 @@
 
         <!-- Jul -->
         <article class="relative w-44 bg-white transform rotate-1 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
-          <div class="w-full h-10 bg-red-600 flex items-center justify-center relative">
+          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #d32f2f;">
             <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="text-xs font-bold text-white tracking-widest">2026</span>
@@ -190,7 +220,7 @@
 
         <!-- Aug -->
         <article class="relative w-44 bg-white transform -rotate-1 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
-          <div class="w-full h-10 bg-red-600 flex items-center justify-center relative">
+          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #d32f2f;">
             <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="text-xs font-bold text-white tracking-widest">2026</span>
@@ -203,7 +233,7 @@
 
         <!-- Sep -->
         <article class="relative w-44 bg-white transform rotate-2 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
-          <div class="w-full h-10 bg-red-600 flex items-center justify-center relative">
+          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #d32f2f;">
             <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="text-xs font-bold text-white tracking-widest">2026</span>
@@ -216,7 +246,7 @@
 
         <!-- Oct -->
         <article class="relative w-44 bg-white transform -rotate-1 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
-          <div class="w-full h-10 bg-red-600 flex items-center justify-center relative">
+          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #d32f2f;">
             <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="text-xs font-bold text-white tracking-widest">2026</span>
@@ -229,7 +259,7 @@
 
         <!-- Nov -->
         <article class="relative w-44 bg-white transform rotate-1 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
-          <div class="w-full h-10 bg-red-600 flex items-center justify-center relative">
+          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #d32f2f;">
             <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="text-xs font-bold text-white tracking-widest">2026</span>
@@ -257,29 +287,104 @@
   </div>
 </section>
 
-    <section id="location" class="py-12 mb-8">
-      <div class="container mx-auto">
-        <h2 class="text-2xl font-bold mb-4">{{ page.location_heading }}</h2>
-        <div class="mb-6">{{ page.location_text|richtext }}</div>
-        {% if page.address %}
-        <p class="mb-2">
-          <strong>Address:</strong><br />{{ page.address|linebreaksbr }}
-        </p>
-        {% endif %} {% if page.directions_text %}
-        <div class="mb-2">
-          <strong>Directions:</strong>
-          {{ page.directions_text|richtext }}
-        </div>
-        {% endif %}
-      </div>
+
+    <!-- White Divider -->
+    <div class="w-full h-8 bg-white"></div>
+    <section id="location" class="py-16" style="background-color: #d32f2f;">
+      <div class="container mx-auto max-w-3xl">
+        <div class="bg-white rounded-3xl shadow-lg p-10 border-l-8 border-yellow-400">
+          <h2 class="text-3xl font-extrabold mb-4" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f;">{{ page.location_heading }}</h2>
+          <div class="mb-8 text-lg text-gray-800">{{ page.location_text|richtext }}</div>
+          {% if page.address %}
+          <p class="mb-4 text-lg text-gray-900">
+            <span class="font-bold">Address:</span><br />{{ page.address|linebreaksbr }}
+          </p>
+          <!-- Google Maps Embed -->
+          <div class="mb-6 flex justify-center">
+            <iframe class="rounded-xl shadow-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d218.2157041458413!2d-2.21406795325673!3d53.336776376097966!2m3!1f0!2f39.44379859735088!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x487a4d1ab04b0bcd%3A0x700bdd2250acfa9c!2sOpen%20Arms%20Youth%20Project!5e1!3m2!1sen!2suk!4v1774543576669!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          {% endif %}
     </section>
 
-    <section id="contact" class="bg-primary-soft text-primary py-12">
+    <!-- Facebook Posts (manual, three posts) -->
+    <section class="py-16" style="font-family: 'Luckiest Guy', cursive;">
       <div class="container mx-auto">
-        <h2 class="text-2xl font-bold mb-4">Contact</h2>
-        <p>Contact details or form here.</p>
+        <h2 class="text-2xl font-bold text-center mb-8">Latest Facebook Posts</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-6">
+              <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FBitesizeChurchColshaw%2Fposts%2Fpfbid02buHwgTebgGjor2zucmVUcgeUqfuLmX79RueYSb6fc8292YLVs1v3EXrNkzWMmWapl&show_text=true&width=500" width="500" height="725" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-6">
+              <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FBitesizeChurchColshaw%2Fposts%2Fpfbid02GMunNQecu45cDLhPchJ9B2Lftipix3m48y67gU7HALCpMwAASDDG1hr7pyK1EbEGl&show_text=true&width=500" width="500" height="745" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-6">
+              <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FBitesizeChurchColshaw%2Fposts%2Fpfbid02Guug6Z9V55hDgddQsxT53Ri5Bkp5gVGBGXyZxJhUPqYgkvEMJqSJh3sym4rJzjqLl&show_text=true&width=500" width="500" height="744" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
+    <!-- White Divider -->
+    <div class="w-full h-8 bg-white"></div>
+
+
+    <section id="contact" class="bg-yellow-400 text-primary py-12" style="font-family: 'Luckiest Guy', cursive;">
+      <div class="container mx-auto max-w-xl">
+        <h2 class="text-3xl font-bold mb-4">Contact</h2>
+        <form method="post" action="#" class="bg-white rounded-lg shadow-md p-8 space-y-6" style="font-family: 'Special Elite', cursive;">
+          <div>
+            <label for="name" class="block text-sm font-semibold mb-1">Name</label>
+            <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary-soft" />
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-semibold mb-1">Email</label>
+            <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary-soft" />
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-semibold mb-1">Message</label>
+            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary-soft"></textarea>
+          </div>
+          <div class="flex justify-center">
+            <button type="submit" class="text-white font-bold px-6 py-2 rounded shadow transition" style="background-color: #d32f2f;">Send</button>
+          </div>
+        </form>
+        <div class="mt-8 text-lg text-center" style="font-family: 'Special Elite', cursive;">
+          <div class="mb-2 flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="7" y="2" width="10" height="20" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><rect x="9" y="4" width="6" height="14" rx="1" ry="1" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="12" cy="19" r="1" fill="currentColor"/></svg>
+            <span class="font-bold">Mobile:</span> <a href="tel:07710592415" class="underline hover:text-red-700">07710 592415</a>
+          </div>
+          <div class="flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10.5l19-7-7 19-2.5-7L3 10.5z" /></svg>
+            <span class="font-bold">Email:</span> <a href="mailto:info@bitesizechurch.co.uk" class="underline hover:text-red-700">info@bitesizechurch.co.uk</a>
+          </div>
+          <div class="flex items-center justify-center gap-2 mt-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-5 h-5 text-primary" viewBox="0 0 24 24" fill="currentColor"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>
+            <span class="font-bold">Facebook:</span> <a href="https://www.facebook.com/BitesizeChurchColshaw" target="_blank" rel="noopener" class="underline hover:text-red-700">Bitesize Church Colshaw</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="text-white py-16 mt-12 text-xl" style="background-color: #d32f2f;">
+      <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-8">
+        <div class="mb-6 md:mb-0">
+          <span class="font-bold text-2xl">Bitesize Church Colshaw</span>
+          <span class="ml-4 text-lg">&copy; {{ now|date:'Y' }} All rights reserved.</span>
+        </div>
+        <div class="flex space-x-10 text-lg">
+          <a href="#about" class="hover:underline">About</a>
+          <a href="#dates" class="hover:underline">Dates</a>
+          <a href="#location" class="hover:underline">Location</a>
+          <a href="#contact" class="hover:underline">Contact</a>
+        </div>
+      </div>
+    </footer>
     <script>
     function getSecondSundays(year) {
       const dates = [];

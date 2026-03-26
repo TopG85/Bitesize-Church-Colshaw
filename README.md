@@ -1,5 +1,50 @@
 # Bitesize-Church-Colshaw
 
+## Project Overview
+
+This is a single-page website for Bitesize Church, a friendly and welcoming community church based in Colshaw. The site is built with Django, Wagtail, and Tailwind CSS, and is fully editable via the Wagtail admin interface.
+
+## Key Features & Recent Updates (March 2026)
+
+- **Favicon:** Added a favicon using the church logo (`382980107_153910111126206_2093967587040039248_n.webp`).
+- **Logo:** The logo is now used in the navbar and as the favicon for consistent branding.
+- **Hero Section:** Features a large hero image, lowercase h1, and a call-to-action button.
+- **About Section:** Explains what Bitesize Church is and what makes it unique.
+- **Why Bitesize? Section:** Added a new section explaining the name and approach, with a yellow background matching the contact section.
+- **Calendar Section:**
+	- Main header uses the "Luckiest Guy" font for a playful look.
+	- Calendar cards have rounded corners, 3D drop shadows, and yellow paper-strip backgrounds (SVG) for a desk calendar effect.
+	- Calendar dates update automatically for any year (second Sunday of each month).
+- **Contact Section:**
+	- Styled with a yellow background and red accents.
+	- Includes a contact form, mobile and email info with icons, and a Facebook link with icon.
+- **Facebook Integration:**
+	- Facebook link and icon added to contact section.
+	- Three latest Facebook posts embedded manually for demo purposes.
+- **Color & Font Consistency:**
+	- Brand colors: red (#d32f2f), golden yellow (bg-yellow-400), and white.
+	- Fonts: "Luckiest Guy" for headers, "Special Elite" for body text.
+- **Mobile Responsive:**
+	- Layout and typography are responsive for all devices.
+- **Wagtail Admin:**
+	- All content is editable via the Wagtail admin interface. No coding required for regular updates.
+
+## How to Edit Content
+
+Wagtail provides a user-friendly admin interface for editing all website content. You do **not** need to be a superuser to edit content. Site owners and editors can be assigned to groups with specific permissions (CRUD: Create, Read, Update, Delete) per page type or section.
+
+To enable editing for non-superusers:
+1. Create a user and assign them to a group (e.g., “Editors”).
+2. In Wagtail admin, go to Settings → Groups and set the desired permissions for that group.
+3. Editors can then log in at `/admin/` to manage content without superuser access.
+
+This setup allows safe, flexible content management for owners and team members.
+
+## Project Prompt (Original)
+
+Create a single page website for Bitesize Church, a friendly and welcoming community church based in Colshaw. The site should have the following sections: a warm hero section with a tagline and call to action, an about section explaining what Bitesize Church is, a Bitesize Brunch section explaining their monthly get-together events, an events section showing upcoming 2026 brunch dates, a visit us section with location and what to expect when you arrive, and a contact section with a simple enquiry form. The tone should be friendly, warm and inclusive. The brand colours are red, golden yellow and white.
+# Bitesize-Church-Colshaw
+
 ## Project Prompt
 
 Create a single page website for Bitesize Church, a friendly and welcoming community church based in Colshaw. The site should have the following sections: a warm hero section with a tagline and call to action, an about section explaining what Bitesize Church is, a Bitesize Brunch section explaining their monthly get-together events, an events section showing upcoming 2026 brunch dates, a visit us section with location and what to expect when you arrive, and a contact section with a simple enquiry form. The tone should be friendly, warm and inclusive. The brand colours are red, golden yellow and white.
@@ -35,4 +80,27 @@ This setup ensures the site is both a valuable learning project and easy to main
 - Google Fonts (Baloo 2, Luckiest Guy, Special Elite) are integrated for custom typography
 - All changes are reflected in `home/templates/home/home_page.html`
 
+
 The homepage remains fully dynamic and editable via the Django/Wagtail admin interface, allowing non-coders to update all content easily.
+
+## Content Editing and Permissions in Wagtail
+
+- Wagtail provides a user-friendly admin interface for editing all website content.
+- You do **not** need to be a superuser to edit content. Site owners and editors can be assigned to groups with specific permissions.
+- Permissions can be set per page type or section, allowing for fine-grained control (CRUD: Create, Read, Update, Delete) over different parts of the site.
+- To enable editing for non-superusers:
+	1. Create a user and assign them to a group (e.g., “Editors”).
+	2. In Wagtail admin, go to Settings → Groups and set the desired permissions for that group.
+	3. Editors can then log in at `/admin/` to manage content without superuser access.
+- This setup allows safe, flexible content management for owners and team members.
+
+### Section/Area-Specific CRUD Permissions
+
+- You can grant CRUD permissions for specific sections of the site tree or for specific page types.
+- For example, a user can be allowed to manage only the “Events” section, or only “Blog” pages, etc.
+- This is managed via the Wagtail Groups and Permissions system in the admin interface.
+
+**Summary:**
+- Owners/editors do not need to be superusers.
+- Use Wagtail’s Groups and Permissions to control who can edit what.
+- Each section/page type can have its own CRUD permissions for safe, flexible content management.
