@@ -2,12 +2,22 @@ from django.db import models
 
 from modelcluster.fields import ParentalKey
 from wagtail.admin.panels import FieldPanel, InlinePanel
-from wagtail.fields import RichTextField
+from wagtail.fields import RichTextField, StreamField
+from wagtail import blocks
+from wagtail.images.blocks import ImageChooserBlock
 from wagtail.images import get_image_model_string
 from wagtail.models import Orderable, Page
 
 
 class HomePage(Page):
+    extra_sections = StreamField([
+        ("heading", blocks.CharBlock(form_classname="full title", icon="title")),
+        ("text", blocks.RichTextBlock(icon="doc-full")),
+        ("image", ImageChooserBlock(icon="image")),
+    ],
+    blank=True,
+    use_json_field=True,
+    )
     hero_title = models.CharField(max_length=255, blank=True)
     hero_tagline = models.TextField(blank=True)
     hero_button_text = models.CharField(max_length=100, blank=True)
@@ -68,7 +78,7 @@ class HomePage(Page):
     facebook_url = models.URLField(blank=True)
     contact_email = models.EmailField(blank=True)
 
-    footer_text = models.CharField(max_length=255, blank=True)
+    footer_text = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
         FieldPanel("hero_title"),
@@ -83,7 +93,6 @@ class HomePage(Page):
         FieldPanel("feature_image"),
         FieldPanel("events_heading"),
         FieldPanel("events_intro"),
-        InlinePanel("brunch_dates", label="Brunch dates"),
         FieldPanel("location_heading"),
         FieldPanel("location_text"),
         FieldPanel("address"),
@@ -95,6 +104,7 @@ class HomePage(Page):
         FieldPanel("facebook_url"),
         FieldPanel("contact_email"),
         FieldPanel("footer_text"),
+        FieldPanel("extra_sections"),
     ]
 
 

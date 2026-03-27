@@ -19,29 +19,28 @@
   </head>
   <body>
     <body style="font-family: 'Special Elite', cursive;">
-    <nav class="shadow-lg py-6 px-10 mb-0 text-xl" style="min-height: 5.5rem; background-color: #d32f2f;">
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+    <nav class="shadow-lg py-6 px-10 mb-0 text-xl sticky top-0 z-50" style="min-height: 5.5rem; background-color: #d32f2f;">
       <div class="container mx-auto flex items-center justify-between">
         <div class="flex items-center">
-          <img
-            src="{% static 'images/382980107_153910111126206_2093967587040039248_n.webp' %}"
-            alt="Bitesize Church Logo"
-            class="h-12 w-12 rounded-full mr-3 border-2 bg-white object-cover"
-            style="background: #fff"
-          />
+          <a href="#hero" aria-label="Back to home">
+            <img
+              src="{% static 'images/382980107_153910111126206_2093967587040039248_n.webp' %}"
+              alt="Bitesize Church Logo"
+              class="h-12 w-12 rounded-full mr-3 border-2 bg-white object-cover"
+              style="background: #fff"
+            />
+          </a>
         </div>
         <div class="flex gap-12 text-xl">
-          <a href="#about" class="text-white font-semibold transition-colors"
-            >About</a
-          >
-          <a href="#dates" class="text-white font-semibold transition-colors"
-            >Dates</a
-          >
-          <a href="#location" class="text-white font-semibold transition-colors"
-            >Location</a
-          >
-          <a href="#contact" class="text-white font-semibold transition-colors"
-            >Contact</a
-          >
+          <a href="#about" class="text-white font-semibold transition-colors hover:underline">About</a>
+          <a href="#dates" class="text-white font-semibold transition-colors hover:underline">Dates</a>
+          <a href="#location" class="text-white font-semibold transition-colors hover:underline">Location</a>
+          <a href="#contact" class="text-white font-semibold transition-colors hover:underline">Contact</a>
         </div>
       </div>
     </nav>
@@ -70,7 +69,7 @@
     </header>
 
     <!-- About Section moved directly after Hero -->
-    <section id="about" class="py-16" style="background-color: #d32f2f;">
+    <section id="about" class="py-16 scroll-mt-24" style="background-color: #d32f2f;">
       <div class="container mx-auto max-w-3xl">
         <div class="bg-white rounded-3xl shadow-lg p-10 mb-10 border-l-8 border-yellow-400">
           <h2 class="text-3xl font-extrabold mb-4" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f;">{{ page.about_heading }}</h2>
@@ -82,6 +81,23 @@
     </section>
     <!-- White Divider -->
     <div class="w-full h-8 bg-white"></div>
+
+    {# Render extra sections from StreamField #}
+    {% if page.extra_sections %}
+      <section id="extra-sections">
+        {% for block in page.extra_sections %}
+          <div class="my-12">
+            {% if block.block_type == 'heading' %}
+              <h2 class="text-3xl font-extrabold mb-4" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f;">{{ block.value }}</h2>
+            {% elif block.block_type == 'text' %}
+              <div class="text-lg text-gray-800 mb-6">{{ block.value|richtext }}</div>
+            {% elif block.block_type == 'image' %}
+              <div class="flex justify-center mb-6">{% image block.value original class="rounded-2xl shadow-lg" %}</div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </section>
+    {% endif %}
 
       <!-- Why Bitesize? Section -->
       <section id="why-bitesize" class="py-16 bg-yellow-400">
@@ -103,7 +119,7 @@
         </div>
       </section>
 
-  <section id="dates" class="bg-white py-16 overflow-hidden">
+  <section id="dates" class="bg-white py-16 overflow-hidden scroll-mt-24">
   <div class="mx-auto max-w-6xl px-6">
     
     <!-- Main Header -->
@@ -290,7 +306,7 @@
 
     <!-- White Divider -->
     <div class="w-full h-8 bg-white"></div>
-    <section id="location" class="py-16" style="background-color: #d32f2f;">
+    <section id="location" class="py-16 scroll-mt-24" style="background-color: #d32f2f;">
       <div class="container mx-auto max-w-3xl">
         <div class="bg-white rounded-3xl shadow-lg p-10 border-l-8 border-yellow-400">
           <h2 class="text-3xl font-extrabold mb-4" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f;">{{ page.location_heading }}</h2>
@@ -333,7 +349,7 @@
     <div class="w-full h-8 bg-white"></div>
 
 
-    <section id="contact" class="bg-yellow-400 text-primary py-12" style="font-family: 'Luckiest Guy', cursive;">
+    <section id="contact" class="bg-yellow-400 text-primary py-12 scroll-mt-24" style="font-family: 'Luckiest Guy', cursive;">
       <div class="container mx-auto max-w-xl">
         <h2 class="text-3xl font-bold mb-4">Contact</h2>
         <form method="post" action="#" class="bg-white rounded-lg shadow-md p-8 space-y-6" style="font-family: 'Special Elite', cursive;">
@@ -372,16 +388,21 @@
     
     <!-- Footer -->
     <footer class="text-white py-16 mt-12 text-xl" style="background-color: #d32f2f;">
-      <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-8">
-        <div class="mb-6 md:mb-0">
-          <span class="font-bold text-2xl">Bitesize Church Colshaw</span>
-          <span class="ml-4 text-lg">&copy; {{ now|date:'Y' }} All rights reserved.</span>
+      <div class="container mx-auto flex flex-col md:flex-row items-center md:items-end justify-between px-8">
+        <div class="w-full md:w-auto md:order-2 flex md:justify-end justify-center mb-4 md:mb-0">
+          <div class="flex space-x-10 text-lg">
+            <a href="#about" class="hover:underline">About</a>
+            <a href="#dates" class="hover:underline">Dates</a>
+            <a href="#location" class="hover:underline">Location</a>
+            <a href="#contact" class="hover:underline">Contact</a>
+          </div>
         </div>
-        <div class="flex space-x-10 text-lg">
-          <a href="#about" class="hover:underline">About</a>
-          <a href="#dates" class="hover:underline">Dates</a>
-          <a href="#location" class="hover:underline">Location</a>
-          <a href="#contact" class="hover:underline">Contact</a>
+        <div class="w-full md:w-auto md:order-1 flex flex-col items-center md:items-start">
+          {% if page.footer_text %}
+            <div class="footer-text text-lg text-center md:text-left" style="font-family: 'Special Elite', cursive;">
+              {{ page.footer_text|richtext }}
+            </div>
+          {% endif %}
         </div>
       </div>
     </footer>
