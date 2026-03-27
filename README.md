@@ -70,7 +70,17 @@ This project is designed to create a single-page website for Bitesize Church, a 
 
 This setup ensures the site is both a valuable learning project and easy to maintain for non-technical users.
 
-## Latest Updates (23 March 2026)
+
+## Latest Updates (27 March 2026)
+
+- **Sticky Navbar:** The main navigation bar is now sticky and always visible at the top of the page as you scroll.
+- **Smooth Scrolling:** Anchor links (navbar/footer) now smoothly scroll to their sections for a better user experience.
+- **Scroll Offset for Anchors:** Section anchors (About, Dates, Location, Contact) have a scroll offset so headers are not hidden behind the sticky navbar.
+- **Clickable Logo:** The logo in the navbar is now clickable and returns you to the top of the homepage.
+- **Footer & Navbar Links:** Footer links match the navbar, are right-aligned, and have a unified hover underline animation.
+- **Admin-Editable Content:** All homepage content (except the calendar) is now editable via the Wagtail admin, including flexible extra sections and footer text.
+- **Code/Template Changes:** All changes are reflected in `home/templates/home/home_page.html` and the Wagtail `HomePage` model.
+
 
 - Updated the calendar main header to use the "Luckiest Guy" font from Google Fonts (closest free match to Wak by Rodrigo Typo)
 - Calendar cards now feature rounded corners, a strong 3D drop shadow, and yellow paper-strip backgrounds for a playful desk calendar look
@@ -81,7 +91,8 @@ This setup ensures the site is both a valuable learning project and easy to main
 - All changes are reflected in `home/templates/home/home_page.html`
 
 
-The homepage remains fully dynamic and editable via the Django/Wagtail admin interface, allowing non-coders to update all content easily.
+
+The homepage remains fully dynamic and editable via the Django/Wagtail admin interface, allowing non-coders to update all content easily. All UI/UX improvements from 27 March 2026 are now live and committed to GitHub.
 
 ## Content Editing and Permissions in Wagtail
 
