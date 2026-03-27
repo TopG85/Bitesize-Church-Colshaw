@@ -71,6 +71,7 @@ This project is designed to create a single-page website for Bitesize Church, a 
 This setup ensures the site is both a valuable learning project and easy to maintain for non-technical users.
 
 
+
 ## Latest Updates (27 March 2026)
 
 - **Sticky Navbar:** The main navigation bar is now sticky and always visible at the top of the page as you scroll.
@@ -79,6 +80,7 @@ This setup ensures the site is both a valuable learning project and easy to main
 - **Clickable Logo:** The logo in the navbar is now clickable and returns you to the top of the homepage.
 - **Footer & Navbar Links:** Footer links match the navbar, are right-aligned, and have a unified hover underline animation.
 - **Admin-Editable Content:** All homepage content (except the calendar) is now editable via the Wagtail admin, including flexible extra sections and footer text.
+- **Dynamic Events Section:** The events heading and intro in the Dates section are now dynamic and fully editable from the Wagtail admin panel.
 - **Code/Template Changes:** All changes are reflected in `home/templates/home/home_page.html` and the Wagtail `HomePage` model.
 
 
