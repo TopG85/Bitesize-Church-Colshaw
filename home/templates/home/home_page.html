@@ -24,19 +24,10 @@
         scroll-behavior: smooth;
       }
     </style>
-    <nav class="shadow-lg py-6 px-10 mb-0 text-xl sticky top-0 z-50" style="min-height: 5.5rem; background-color: #d32f2f;">
-      <div class="container mx-auto flex items-center justify-between">
-        <div class="flex items-center">
-          <a href="#hero" aria-label="Back to home">
-            <img
-              src="{% static 'images/382980107_153910111126206_2093967587040039248_n.webp' %}"
-              alt="Bitesize Church Logo"
-              class="h-12 w-12 rounded-full mr-3 border-2 bg-white object-cover"
-              style="background: #fff"
-            />
-          </a>
-        </div>
-        <div class="flex gap-12 text-xl">
+    <nav class="shadow-lg py-9 px-6 md:px-13 mb-0 text-lg sticky top-0 z-50" style="min-height: 7.75rem; background-color: #d32f2f; font-family: 'Special Elite', cursive;">
+      <div class="w-full max-w-none flex items-center justify-end">
+        <div class="flex gap-12 text-lg">
+          <a href="#hero" class="text-white font-semibold transition-colors hover:underline">Home</a>
           <a href="#about" class="text-white font-semibold transition-colors hover:underline">About</a>
           <a href="#dates" class="text-white font-semibold transition-colors hover:underline">Dates</a>
           <a href="#location" class="text-white font-semibold transition-colors hover:underline">Location</a>
@@ -46,7 +37,7 @@
     </nav>
 
 
-    <header id="hero" class="bg-primary text-white py-0 mb-8 mt-0">
+    <header id="hero" class="bg-primary text-white py-0 mb-8 mt-0" style="scroll-margin-top: 8.5rem;">
       <div class="relative w-full overflow-hidden min-h-[700px] md:min-h-[900px] flex items-center justify-center">
         <img
           src="{% static 'images/bitesizechurch.webp' %}"
@@ -54,7 +45,11 @@
           class="w-full h-[700px] md:h-[900px] object-cover rounded-b-3xl shadow-lg absolute inset-0 z-0"/>
         <div class="absolute inset-0 flex flex-col items-center justify-center z-10">
           <div class="px-8 py-10 md:px-16 md:py-14 text-center max-w-2xl mx-auto">
-              <h1 class="text-5xl md:text-7xl font-extrabold mb-4 drop-shadow-lg whitespace-nowrap" style="font-family: 'Luckiest Guy', cursive; color: #fff; letter-spacing: 2px; text-transform: lowercase;">{{ page.hero_title|lower }}</h1>
+              <img
+                src="{% static 'images/382980107_153910111126206_2093967587040039248_n.webp' %}"
+                alt="Bitesize Church Logo"
+                class="h-24 w-24 md:h-32 md:w-32 rounded-full border-4 border-white bg-white object-cover mx-auto mb-6 shadow-xl"
+              />
               <p class="text-2xl mb-4 text-white font-semibold">Worship. Community. <span class="text-yellow-300 font-extrabold">Free Brunch for All!</span></p>
               <p class="text-lg mb-8 text-white">{{ page.hero_tagline }}</p>
               {% if page.hero_button_text and page.hero_button_link %}
@@ -388,16 +383,8 @@
     
     <!-- Footer -->
     <footer class="text-white py-16 mt-12 text-xl" style="background-color: #d32f2f;">
-      <div class="container mx-auto flex flex-col md:flex-row items-center md:items-end justify-between px-8">
-        <div class="w-full md:w-auto md:order-2 flex md:justify-end justify-center mb-4 md:mb-0">
-          <div class="flex space-x-10 text-lg">
-            <a href="#about" class="hover:underline">About</a>
-            <a href="#dates" class="hover:underline">Dates</a>
-            <a href="#location" class="hover:underline">Location</a>
-            <a href="#contact" class="hover:underline">Contact</a>
-          </div>
-        </div>
-        <div class="w-full md:w-auto md:order-1 flex flex-col items-center md:items-start">
+      <div class="container mx-auto flex justify-center px-8">
+        <div class="flex flex-col items-center">
           {% if page.footer_text %}
             <div class="footer-text text-lg text-center md:text-left" style="font-family: 'Special Elite', cursive;">
               {{ page.footer_text|richtext }}

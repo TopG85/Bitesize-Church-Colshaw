@@ -4,11 +4,11 @@
 
 This is a single-page website for Bitesize Church, a friendly and welcoming community church based in Colshaw. The site is built with Django, Wagtail, and Tailwind CSS, and is fully editable via the Wagtail admin interface.
 
-## Key Features & Recent Updates (March 2026)
+## Key Features & Recent Updates (14 April 2026)
 
 - **Favicon:** Added a favicon using the church logo (`382980107_153910111126206_2093967587040039248_n.webp`).
-- **Logo:** The logo is now used in the navbar and as the favicon for consistent branding.
-- **Hero Section:** Features a large hero image, lowercase h1, and a call-to-action button.
+- **Logo:** The logo is now centered in the hero section, while still being used as the favicon for consistent branding.
+- **Hero Section:** Features a large hero image, centered logo, and a call-to-action button.
 - **About Section:** Explains what Bitesize Church is and what makes it unique.
 - **Why Bitesize? Section:** Added a new section explaining the name and approach, with a yellow background matching the contact section.
 - **Calendar Section:**
@@ -21,6 +21,7 @@ This is a single-page website for Bitesize Church, a friendly and welcoming comm
 - **Facebook Integration:**
 	- Facebook link and icon added to contact section.
 	- Three latest Facebook posts embedded manually for demo purposes.
+- **Navbar & Footer:** The navbar now has a Home link back to the hero section, the links are right-aligned, and the footer now shows only the copyright/information text.
 - **Color & Font Consistency:**
 	- Brand colors: red (#d32f2f), golden yellow (bg-yellow-400), and white.
 	- Fonts: "Luckiest Guy" for headers, "Special Elite" for body text.
@@ -72,29 +73,18 @@ This setup ensures the site is both a valuable learning project and easy to main
 
 
 
-## Latest Updates (27 March 2026)
+## Latest Updates (14 April 2026)
 
-- **Sticky Navbar:** The main navigation bar is now sticky and always visible at the top of the page as you scroll.
-- **Smooth Scrolling:** Anchor links (navbar/footer) now smoothly scroll to their sections for a better user experience.
-- **Scroll Offset for Anchors:** Section anchors (About, Dates, Location, Contact) have a scroll offset so headers are not hidden behind the sticky navbar.
-- **Clickable Logo:** The logo in the navbar is now clickable and returns you to the top of the homepage.
-- **Footer & Navbar Links:** Footer links match the navbar, are right-aligned, and have a unified hover underline animation.
-- **Admin-Editable Content:** All homepage content (except the calendar) is now editable via the Wagtail admin, including flexible extra sections and footer text.
-- **Dynamic Events Section:** The events heading and intro in the Dates section are now dynamic and fully editable from the Wagtail admin panel.
-- **Code/Template Changes:** All changes are reflected in `home/templates/home/home_page.html` and the Wagtail `HomePage` model.
+- **Hero Layout:** The Bitesize logo now sits in the center of the hero section instead of the navbar.
+- **Hero Text:** The hero title text was removed so the logo is the main focus.
+- **Navbar Layout:** The navbar links are right-aligned again and the Home link has been added back to jump to the hero section.
+- **Navbar Styling:** Navbar link text now matches the footer text size and keeps the Special Elite font.
+- **Sticky Hero Offset:** The hero section uses a scroll offset so the sticky navbar does not cover it when Home is clicked.
+- **Footer Simplified:** Footer navigation links were removed, leaving only the copyright/information text.
+- **Admin-Editable Content:** All homepage content (except the calendar) is still editable via the Wagtail admin, including flexible extra sections and footer text.
+- **Code/Template Changes:** All changes are reflected in `home/templates/home/home_page.html`.
 
-
-- Updated the calendar main header to use the "Luckiest Guy" font from Google Fonts (closest free match to Wak by Rodrigo Typo)
-- Calendar cards now feature rounded corners, a strong 3D drop shadow, and yellow paper-strip backgrounds for a playful desk calendar look
-- All non-header text uses the "Special Elite" typewriter-style font for extra character
-- Navbar size increased for better visual impact
-- Tailwind CSS is now loaded via CDN for rapid UI development
-- Google Fonts (Baloo 2, Luckiest Guy, Special Elite) are integrated for custom typography
-- All changes are reflected in `home/templates/home/home_page.html`
-
-
-
-The homepage remains fully dynamic and editable via the Django/Wagtail admin interface, allowing non-coders to update all content easily. All UI/UX improvements from 27 March 2026 are now live and committed to GitHub.
+The homepage remains fully dynamic and editable via the Django/Wagtail admin interface, allowing non-coders to update content easily.
 
 ## Content Editing and Permissions in Wagtail
 
