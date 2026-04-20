@@ -1,6 +1,6 @@
 /* Make all buttons red with white text */
 button, .btn, input[type="submit"], input[type="button"] {
-	background-color: #1E3A5F !important;
+	background-color: #E63946 !important;
 	color: #fff !important;
 	border: none;
 	transition: background 0.2s;
