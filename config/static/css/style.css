@@ -1,13 +1,13 @@
-/* Make all buttons gold with navy text */
+/* Make all buttons red with white text */
 button, .btn, input[type="submit"], input[type="button"] {
-	background-color: #D4AF37 !important;
-	color: #1E3A5F !important;
+	background-color: #1E3A5F !important;
+	color: #fff !important;
 	border: none;
 	transition: background 0.2s;
 	font-weight: bold;
 }
 button:hover, .btn:hover, input[type="submit"]:hover, input[type="button"]:hover {
-	background-color: #B8941A !important;
+	background-color: #0D1F1B !important;
 }
 /* Ensure calendar numbers use the correct font */
 .calendar-number {

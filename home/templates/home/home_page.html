@@ -23,15 +23,37 @@
       html {
         scroll-behavior: smooth;
       }
+      
+      /* Logo scroll reveal styles */
+      #navbar-logo {
+        opacity: 0;
+        transform: translateX(-20px) scale(0.8);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+      
+      #navbar-logo.visible {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+      }
+      
+      #navbar-logo img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        border: 2px solid #1E3A5F;
+      }
     </style>
-    <nav class="shadow-lg py-9 px-6 md:px-13 mb-0 text-lg sticky top-0 z-50" style="min-height: 7.75rem; background-color: #1E3A5F; font-family: 'Merriweather', serif;">
-      <div class="w-full max-w-none flex items-center justify-end">
+    <nav class="shadow-lg py-9 px-6 md:px-13 mb-0 text-lg sticky top-0 z-50" style="min-height: 7.75rem; background-color: #FFFFFF; font-family: 'Merriweather', serif;">
+      <div class="w-full max-w-none flex items-center justify-between">
+        <div id="navbar-logo">
+          <img src="{% static 'images/382980107_153910111126206_2093967587040039248_n.webp' %}" alt="Bitesize Church Logo" />
+        </div>
         <div class="flex gap-12 text-lg">
-          <a href="#hero" class="text-white font-semibold transition-colors hover:underline">Home</a>
-          <a href="#about" class="text-white font-semibold transition-colors hover:underline">About</a>
-          <a href="#dates" class="text-white font-semibold transition-colors hover:underline">Dates</a>
-          <a href="#location" class="text-white font-semibold transition-colors hover:underline">Location</a>
-          <a href="#contact" class="text-white font-semibold transition-colors hover:underline">Contact</a>
+          <a href="#hero" class="text-gray-800 font-semibold transition-colors hover:text-red-600">Home</a>
+          <a href="#about" class="text-gray-800 font-semibold transition-colors hover:text-red-600">About</a>
+          <a href="#dates" class="text-gray-800 font-semibold transition-colors hover:text-red-600">Dates</a>
+          <a href="#location" class="text-gray-800 font-semibold transition-colors hover:text-red-600">Location</a>
+          <a href="#contact" class="text-gray-800 font-semibold transition-colors hover:text-red-600">Contact</a>
         </div>
       </div>
     </nav>
@@ -50,11 +72,11 @@
                 alt="Bitesize Church Logo"
                 class="h-24 w-24 md:h-32 md:w-32 rounded-full border-4 border-white bg-white object-cover mx-auto mb-6 shadow-xl"
               />
-              <p class="text-2xl mb-4 text-white font-semibold">Worship. Community. <span class="font-extrabold" style="color: #D4AF37;">Free Brunch for All!</span></p>
+              <p class="text-2xl mb-4 text-white font-semibold">Worship. Community. <span class="font-extrabold" style="color: #1E3A5F;">Free Brunch for All!</span></p>
               <p class="text-lg mb-8 text-white">{{ page.hero_tagline }}</p>
               {% if page.hero_button_text and page.hero_button_link %}
               <a
-                class="inline-block text-white font-bold px-10 py-4 rounded-xl shadow-lg transition text-xl border-2 border-white" style="background-color: #D4AF37; color: #1E3A5F;" onmouseover="this.style.backgroundColor='#B8941A'" onmouseout="this.style.backgroundColor='#D4AF37'"
+                class="inline-block text-white font-bold px-10 py-4 rounded-xl shadow-lg transition text-xl border-2 border-white" style="background-color: #1E3A5F; color: #FFFFFF;" onmouseover="this.style.backgroundColor='#0D1F1B'" onmouseout="this.style.backgroundColor='#1E3A5F'"
                 href="{{ page.hero_button_link }}"
                 >{{ page.hero_button_text }}</a>
               {% endif %}
@@ -64,9 +86,9 @@
     </header>
 
     <!-- About Section moved directly after Hero -->
-    <section id="about" class="py-16 scroll-mt-24" style="background-color: #1E3A5F;">
+    <section id="about" class="py-16 scroll-mt-24" style="background-color: #FFFFFF;">
       <div class="container mx-auto max-w-3xl">
-        <div class="bg-white rounded-3xl shadow-lg p-10 mb-10 border-l-8" style="border-left-color: #D4AF37;">
+        <div class="bg-gray-50 rounded-3xl shadow-lg p-10 mb-10 border-l-8" style="border-left-color: #1E3A5F;">
           <h2 class="text-3xl font-extrabold mb-4" style="font-family: 'Playfair Display', serif; color: #1E3A5F;">{{ page.about_heading }}</h2>
           <div class="mb-8 text-lg text-gray-800">{{ page.about_text|richtext }}</div>
           <h2 class="text-2xl font-bold mb-4" style="color: #1E3A5F; font-family: 'Playfair Display', serif;">{{ page.feature_heading }}</h2>
@@ -95,9 +117,9 @@
     {% endif %}
 
       <!-- Why Bitesize? Section -->
-      <section id="why-bitesize" class="py-16" style="background-color: #F5E6D3;">
+      <section id="why-bitesize" class="py-16" style="background-color: #F8F8F8;">
         <div class="container mx-auto max-w-3xl">
-          <div class="bg-white rounded-3xl shadow-lg p-10 border-l-8" style="border-left-color: #D4AF37;">
+          <div class="bg-white rounded-3xl shadow-lg p-10 border-l-8" style="border-left-color: #1E3A5F;">
             <h2 class="text-3xl font-extrabold mb-4" style="font-family: 'Playfair Display', serif; color: #1E3A5F;">
               Why “Bitesize”?
             </h2>
@@ -130,11 +152,11 @@
       <!-- Gold Background Banners (Placed behind the grid) -->
       <div class="absolute inset-0 flex flex-col justify-between py-10 opacity-80 z-0 pointer-events-none">
         <!-- Top strip: left-leaning jagged -->
-        <div class="w-[120%] -ml-[10%] h-48 mt-0" style="background: url('data:image/svg+xml;utf8,<svg width=\'100%\' height=\'100%\' viewBox=\'0 0 600 192\' xmlns=\'http://www.w3.org/2000/svg\'><polygon points=\'0,0 600,20 600,192 0,172\' fill=\'%23F5E6D3\'/></svg>'); background-size: cover;"></div>
+        <div class="w-[120%] -ml-[10%] h-48 mt-0" style="background: url('data:image/svg+xml;utf8,<svg width=\'100%\' height=\'100%\' viewBox=\'0 0 600 192\' xmlns=\'http://www.w3.org/2000/svg\'><polygon points=\'0,0 600,20 600,192 0,172\' fill=\'%23FFFACD\'/></svg>'); background-size: cover;"></div>
         <!-- Middle strip: right-leaning jagged -->
-        <div class="w-[120%] -ml-[10%] h-48 mt-20" style="background: url('data:image/svg+xml;utf8,<svg width=\'100%\' height=\'100%\' viewBox=\'0 0 600 192\' xmlns=\'http://www.w3.org/2000/svg\'><polygon points=\'0,20 600,0 600,192 0,172\' fill=\'%23F5E6D3\'/></svg>'); background-size: cover;"></div>
+        <div class="w-[120%] -ml-[10%] h-48 mt-20" style="background: url('data:image/svg+xml;utf8,<svg width=\'100%\' height=\'100%\' viewBox=\'0 0 600 192\' xmlns=\'http://www.w3.org/2000/svg\'><polygon points=\'0,20 600,0 600,192 0,172\' fill=\'%23FFFACD\'/></svg>'); background-size: cover;"></div>
         <!-- Bottom strip: zigzag/jagged -->
-        <div class="w-[120%] -ml-[10%] h-48 mt-20" style="background: url('data:image/svg+xml;utf8,<svg width=\'100%\' height=\'100%\' viewBox=\'0 0 600 192\' xmlns=\'http://www.w3.org/2000/svg\'><polygon points=\'0,10 100,30 200,0 300,40 400,10 500,30 600,0 600,192 0,172\' fill=\'%23F5E6D3\'/></svg>'); background-size: cover;"></div>
+        <div class="w-[120%] -ml-[10%] h-48 mt-20" style="background: url('data:image/svg+xml;utf8,<svg width=\'100%\' height=\'100%\' viewBox=\'0 0 600 192\' xmlns=\'http://www.w3.org/2000/svg\'><polygon points=\'0,10 100,30 200,0 300,40 400,10 500,30 600,0 600,192 0,172\' fill=\'%23FFFACD\'/></svg>'); background-size: cover;"></div>
       </div>
       <!-- The Calendar Grid -->
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-16 justify-items-center relative z-10">
@@ -301,9 +323,9 @@
 
     <!-- White Divider -->
     <div class="w-full h-8 bg-white"></div>
-    <section id="location" class="py-16 scroll-mt-24" style="background-color: #1E3A5F;">
+    <section id="location" class="py-16 scroll-mt-24" style="background-color: #FFFFFF;">
       <div class="container mx-auto max-w-3xl">
-        <div class="bg-white rounded-3xl shadow-lg p-10 border-l-8" style="border-left-color: #D4AF37;">
+        <div class="bg-gray-50 rounded-3xl shadow-lg p-10 border-l-8" style="border-left-color: #1E3A5F;">
           <h2 class="text-3xl font-extrabold mb-4" style="font-family: 'Playfair Display', serif; color: #1E3A5F;">{{ page.location_heading }}</h2>
           <div class="mb-8 text-lg text-gray-800">{{ page.location_text|richtext }}</div>
           {% if page.address %}
@@ -361,21 +383,21 @@
             <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary-soft"></textarea>
           </div>
           <div class="flex justify-center">
-            <button type="submit" class="text-white font-bold px-6 py-2 rounded shadow transition" style="background-color: #D4AF37; color: #1E3A5F;">Send</button>
+            <button type="submit" class="text-white font-bold px-6 py-2 rounded shadow transition" style="background-color: #1E3A5F; color: #FFFFFF;">Send</button>
           </div>
         </form>
         <div class="mt-8 text-lg text-center text-white" style="font-family: 'Merriweather', serif;">
           <div class="mb-2 flex items-center justify-center gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="7" y="2" width="10" height="20" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><rect x="9" y="4" width="6" height="14" rx="1" ry="1" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="12" cy="19" r="1" fill="currentColor"/></svg>
-            <span class="font-bold">Mobile:</span> <a href="tel:07710592415" class="underline hover:text-gold-300">07710 592415</a>
+            <span class="font-bold">Mobile:</span> <a href="tel:07710592415" class="underline hover:text-red-200">07710 592415</a>
           </div>
           <div class="flex items-center justify-center gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10.5l19-7-7 19-2.5-7L3 10.5z" /></svg>
-            <span class="font-bold">Email:</span> <a href="mailto:info@bitesizechurch.co.uk" class="underline hover:text-gold-300">info@bitesizechurch.co.uk</a>
+            <span class="font-bold">Email:</span> <a href="mailto:info@bitesizechurch.co.uk" class="underline hover:text-red-200">info@bitesizechurch.co.uk</a>
           </div>
           <div class="flex items-center justify-center gap-2 mt-2">
             <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>
-            <span class="font-bold">Facebook:</span> <a href="https://www.facebook.com/BitesizeChurchColshaw" target="_blank" rel="noopener" class="underline hover:text-gold-300">Bitesize Church Colshaw</a>
+            <span class="font-bold">Facebook:</span> <a href="https://www.facebook.com/BitesizeChurchColshaw" target="_blank" rel="noopener" class="underline hover:text-red-200">Bitesize Church Colshaw</a>
           </div>
         </div>
       </div>
@@ -394,6 +416,26 @@
       </div>
     </footer>
     <script>
+    // Logo scroll reveal effect
+    const navbarLogo = document.getElementById('navbar-logo');
+    const heroSection = document.getElementById('hero');
+    
+    function handleScroll() {
+      const heroBottom = heroSection.getBoundingClientRect().bottom;
+      
+      // Show logo when scrolling past the hero section
+      if (window.scrollY > 100 || heroBottom < 0) {
+        navbarLogo.classList.add('visible');
+      } else {
+        navbarLogo.classList.remove('visible');
+      }
+    }
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Initial check on page load
+    handleScroll();
+
     function getSecondSundays(year) {
       const dates = [];
       for (let month = 0; month < 12; month++) {
