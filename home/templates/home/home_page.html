@@ -14,17 +14,17 @@
     <!-- Tailwind Play CDN -->
        <script src="https://cdn.tailwindcss.com"></script>
        <!-- Google Fonts -->
-      <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Luckiest+Guy&family=Special+Elite&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
        <!-- Any other head content you need -->
   </head>
   <body>
-    <body style="font-family: 'Special Elite', cursive;">
+    <body style="font-family: 'Merriweather', serif;">
     <style>
       html {
         scroll-behavior: smooth;
       }
     </style>
-    <nav class="shadow-lg py-9 px-6 md:px-13 mb-0 text-lg sticky top-0 z-50" style="min-height: 7.75rem; background-color: #d32f2f; font-family: 'Special Elite', cursive;">
+    <nav class="shadow-lg py-9 px-6 md:px-13 mb-0 text-lg sticky top-0 z-50" style="min-height: 7.75rem; background-color: #1E3A5F; font-family: 'Merriweather', serif;">
       <div class="w-full max-w-none flex items-center justify-end">
         <div class="flex gap-12 text-lg">
           <a href="#hero" class="text-white font-semibold transition-colors hover:underline">Home</a>
@@ -50,11 +50,11 @@
                 alt="Bitesize Church Logo"
                 class="h-24 w-24 md:h-32 md:w-32 rounded-full border-4 border-white bg-white object-cover mx-auto mb-6 shadow-xl"
               />
-              <p class="text-2xl mb-4 text-white font-semibold">Worship. Community. <span class="text-yellow-300 font-extrabold">Free Brunch for All!</span></p>
+              <p class="text-2xl mb-4 text-white font-semibold">Worship. Community. <span class="font-extrabold" style="color: #D4AF37;">Free Brunch for All!</span></p>
               <p class="text-lg mb-8 text-white">{{ page.hero_tagline }}</p>
               {% if page.hero_button_text and page.hero_button_link %}
               <a
-                class="inline-block bg-red-600 text-white font-bold px-10 py-4 rounded-xl shadow-lg hover:bg-red-700 transition text-xl border-2 border-white"
+                class="inline-block text-white font-bold px-10 py-4 rounded-xl shadow-lg transition text-xl border-2 border-white" style="background-color: #D4AF37; color: #1E3A5F;" onmouseover="this.style.backgroundColor='#B8941A'" onmouseout="this.style.backgroundColor='#D4AF37'"
                 href="{{ page.hero_button_link }}"
                 >{{ page.hero_button_text }}</a>
               {% endif %}
@@ -64,12 +64,12 @@
     </header>
 
     <!-- About Section moved directly after Hero -->
-    <section id="about" class="py-16 scroll-mt-24" style="background-color: #d32f2f;">
+    <section id="about" class="py-16 scroll-mt-24" style="background-color: #1E3A5F;">
       <div class="container mx-auto max-w-3xl">
-        <div class="bg-white rounded-3xl shadow-lg p-10 mb-10 border-l-8 border-yellow-400">
-          <h2 class="text-3xl font-extrabold mb-4" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f;">{{ page.about_heading }}</h2>
+        <div class="bg-white rounded-3xl shadow-lg p-10 mb-10 border-l-8" style="border-left-color: #D4AF37;">
+          <h2 class="text-3xl font-extrabold mb-4" style="font-family: 'Playfair Display', serif; color: #1E3A5F;">{{ page.about_heading }}</h2>
           <div class="mb-8 text-lg text-gray-800">{{ page.about_text|richtext }}</div>
-          <h2 class="text-2xl font-bold mb-4" style="color: #d32f2f;">{{ page.feature_heading }}</h2>
+          <h2 class="text-2xl font-bold mb-4" style="color: #1E3A5F; font-family: 'Playfair Display', serif;">{{ page.feature_heading }}</h2>
           <div class="text-lg text-gray-800">{{ page.feature_text|richtext }}</div>
         </div>
       </div>
@@ -83,7 +83,7 @@
         {% for block in page.extra_sections %}
           <div class="my-12">
             {% if block.block_type == 'heading' %}
-              <h2 class="text-3xl font-extrabold mb-4" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f;">{{ block.value }}</h2>
+              <h2 class="text-3xl font-extrabold mb-4" style="font-family: 'Playfair Display', serif; color: #1E3A5F;">{{ block.value }}</h2>
             {% elif block.block_type == 'text' %}
               <div class="text-lg text-gray-800 mb-6">{{ block.value|richtext }}</div>
             {% elif block.block_type == 'image' %}
@@ -95,10 +95,10 @@
     {% endif %}
 
       <!-- Why Bitesize? Section -->
-      <section id="why-bitesize" class="py-16 bg-yellow-400">
+      <section id="why-bitesize" class="py-16" style="background-color: #F5E6D3;">
         <div class="container mx-auto max-w-3xl">
-          <div class="bg-white rounded-3xl shadow-lg p-10 border-l-8 border-red-600">
-            <h2 class="text-3xl font-extrabold mb-4" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f;">
+          <div class="bg-white rounded-3xl shadow-lg p-10 border-l-8" style="border-left-color: #D4AF37;">
+            <h2 class="text-3xl font-extrabold mb-4" style="font-family: 'Playfair Display', serif; color: #1E3A5F;">
               Why “Bitesize”?
             </h2>
             <p class="text-lg text-gray-800 mb-4">
@@ -119,7 +119,7 @@
     
     <!-- Main Header -->
     <header class="text-center mb-12">
-      <h1 class="text-5xl md:text-7xl font-extrabold mb-4 leading-none" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f; text-transform: lowercase;">
+      <h1 class="text-5xl md:text-7xl font-extrabold mb-4 leading-none" style="font-family: 'Playfair Display', serif; color: #1E3A5F; text-transform: lowercase;">
         {{ page.events_heading|linebreaksbr }}
       </h1>
       <p class="text-lg md:text-2xl text-gray-700 mt-4 font-semibold">{{ page.events_intro|richtext }}</p>
@@ -127,169 +127,169 @@
 
     <!-- Grid Container -->
     <div class="relative py-10">
-      <!-- Yellow Background Banners (Placed behind the grid) -->
+      <!-- Gold Background Banners (Placed behind the grid) -->
       <div class="absolute inset-0 flex flex-col justify-between py-10 opacity-80 z-0 pointer-events-none">
         <!-- Top strip: left-leaning jagged -->
-        <div class="w-[120%] -ml-[10%] h-48 mt-0" style="background: url('data:image/svg+xml;utf8,<svg width=\'100%\' height=\'100%\' viewBox=\'0 0 600 192\' xmlns=\'http://www.w3.org/2000/svg\'><polygon points=\'0,0 600,20 600,192 0,172\' fill=\'%23fde047\'/></svg>'); background-size: cover;"></div>
+        <div class="w-[120%] -ml-[10%] h-48 mt-0" style="background: url('data:image/svg+xml;utf8,<svg width=\'100%\' height=\'100%\' viewBox=\'0 0 600 192\' xmlns=\'http://www.w3.org/2000/svg\'><polygon points=\'0,0 600,20 600,192 0,172\' fill=\'%23F5E6D3\'/></svg>'); background-size: cover;"></div>
         <!-- Middle strip: right-leaning jagged -->
-        <div class="w-[120%] -ml-[10%] h-48 mt-20" style="background: url('data:image/svg+xml;utf8,<svg width=\'100%\' height=\'100%\' viewBox=\'0 0 600 192\' xmlns=\'http://www.w3.org/2000/svg\'><polygon points=\'0,20 600,0 600,192 0,172\' fill=\'%23fde047\'/></svg>'); background-size: cover;"></div>
+        <div class="w-[120%] -ml-[10%] h-48 mt-20" style="background: url('data:image/svg+xml;utf8,<svg width=\'100%\' height=\'100%\' viewBox=\'0 0 600 192\' xmlns=\'http://www.w3.org/2000/svg\'><polygon points=\'0,20 600,0 600,192 0,172\' fill=\'%23F5E6D3\'/></svg>'); background-size: cover;"></div>
         <!-- Bottom strip: zigzag/jagged -->
-        <div class="w-[120%] -ml-[10%] h-48 mt-20" style="background: url('data:image/svg+xml;utf8,<svg width=\'100%\' height=\'100%\' viewBox=\'0 0 600 192\' xmlns=\'http://www.w3.org/2000/svg\'><polygon points=\'0,10 100,30 200,0 300,40 400,10 500,30 600,0 600,192 0,172\' fill=\'%23fde047\'/></svg>'); background-size: cover;"></div>
+        <div class="w-[120%] -ml-[10%] h-48 mt-20" style="background: url('data:image/svg+xml;utf8,<svg width=\'100%\' height=\'100%\' viewBox=\'0 0 600 192\' xmlns=\'http://www.w3.org/2000/svg\'><polygon points=\'0,10 100,30 200,0 300,40 400,10 500,30 600,0 600,192 0,172\' fill=\'%23F5E6D3\'/></svg>'); background-size: cover;"></div>
       </div>
       <!-- The Calendar Grid -->
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-16 justify-items-center relative z-10">
         <!-- Jan -->
         <article class="relative w-44 bg-white transform -rotate-2 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
-          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #d32f2f;">
+          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #1E3A5F;">
             <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="text-xs font-bold text-white tracking-widest">2026</span>
           </div>
           <div class="py-6 text-center">
-            <div class="text-6xl font-black leading-none calendar-number" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f;">11</div>
+            <div class="text-6xl font-black leading-none calendar-number" style="color: #1E3A5F;">11</div>
             <div class="text-xl font-black uppercase text-gray-900 mt-2">January</div>
           </div>
         </article>
 
         <!-- Feb -->
         <article class="relative w-44 bg-white transform rotate-1 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
-          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #d32f2f;">
+          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #1E3A5F;">
             <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="text-xs font-bold text-white tracking-widest">2026</span>
           </div>
           <div class="py-6 text-center">
-            <div class="text-6xl font-black leading-none calendar-number" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f;">8</div>
+            <div class="text-6xl font-black leading-none calendar-number" style="color: #1E3A5F;">8</div>
             <div class="text-xl font-black uppercase text-gray-900 mt-2">February</div>
           </div>
         </article>
 
         <!-- Mar -->
         <article class="relative w-44 bg-white transform -rotate-1 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
-          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #d32f2f;">
+          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #1E3A5F;">
             <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="text-xs font-bold text-white tracking-widest">2026</span>
           </div>
           <div class="py-6 text-center">
-            <div class="text-6xl font-black leading-none calendar-number" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f;">8</div>
+            <div class="text-6xl font-black leading-none calendar-number" style="color: #1E3A5F;">8</div>
             <div class="text-xl font-black uppercase text-gray-900 mt-2">March</div>
           </div>
         </article>
 
         <!-- Apr -->
         <article class="relative w-44 bg-white transform rotate-2 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
-          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #d32f2f;">
+          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #1E3A5F;">
             <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="text-xs font-bold text-white tracking-widest">2026</span>
           </div>
           <div class="py-6 text-center">
-            <div class="text-6xl font-black leading-none calendar-number" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f;">12</div>
+            <div class="text-6xl font-black leading-none calendar-number" style="color: #1E3A5F;">12</div>
             <div class="text-xl font-black uppercase text-gray-900 mt-2">April</div>
           </div>
         </article>
 
         <!-- May -->
         <article class="relative w-44 bg-white transform rotate-1 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
-          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #d32f2f;">
+          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #1E3A5F;">
             <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="text-xs font-bold text-white tracking-widest">2026</span>
           </div>
           <div class="py-6 text-center">
-            <div class="text-6xl font-black leading-none calendar-number" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f;">10</div>
+            <div class="text-6xl font-black leading-none calendar-number" style="color: #1E3A5F;">10</div>
             <div class="text-xl font-black uppercase text-gray-900 mt-2">May</div>
           </div>
         </article>
 
         <!-- Jun -->
         <article class="relative w-44 bg-white transform -rotate-2 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
-          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #d32f2f;">
+          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #1E3A5F;">
             <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="text-xs font-bold text-white tracking-widest">2026</span>
           </div>
           <div class="py-6 text-center">
-            <div class="text-6xl font-black leading-none calendar-number" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f;">14</div>
+            <div class="text-6xl font-black leading-none calendar-number" style="color: #1E3A5F;">14</div>
             <div class="text-xl font-black uppercase text-gray-900 mt-2">June</div>
           </div>
         </article>
 
         <!-- Jul -->
         <article class="relative w-44 bg-white transform rotate-1 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
-          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #d32f2f;">
+          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #1E3A5F;">
             <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="text-xs font-bold text-white tracking-widest">2026</span>
           </div>
           <div class="py-6 text-center">
-            <div class="text-6xl font-black leading-none calendar-number" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f;">12</div>
+            <div class="text-6xl font-black leading-none calendar-number" style="color: #1E3A5F;">12</div>
             <div class="text-xl font-black uppercase text-gray-900 mt-2">July</div>
           </div>
         </article>
 
         <!-- Aug -->
         <article class="relative w-44 bg-white transform -rotate-1 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
-          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #d32f2f;">
+          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #1E3A5F;">
             <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="text-xs font-bold text-white tracking-widest">2026</span>
           </div>
           <div class="py-6 text-center">
-            <div class="text-6xl font-black leading-none calendar-number" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f;">9</div>
+            <div class="text-6xl font-black leading-none calendar-number" style="color: #1E3A5F;">9</div>
             <div class="text-xl font-black uppercase text-gray-900 mt-2">August</div>
           </div>
         </article>
 
         <!-- Sep -->
         <article class="relative w-44 bg-white transform rotate-2 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
-          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #d32f2f;">
+          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #1E3A5F;">
             <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="text-xs font-bold text-white tracking-widest">2026</span>
           </div>
           <div class="py-6 text-center">
-            <div class="text-6xl font-black leading-none calendar-number" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f;">13</div>
+            <div class="text-6xl font-black leading-none calendar-number" style="color: #1E3A5F;">13</div>
             <div class="text-xl font-black uppercase text-gray-900 mt-2">September</div>
           </div>
         </article>
 
         <!-- Oct -->
         <article class="relative w-44 bg-white transform -rotate-1 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
-          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #d32f2f;">
+          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #1E3A5F;">
             <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="text-xs font-bold text-white tracking-widest">2026</span>
           </div>
           <div class="py-6 text-center">
-            <div class="text-6xl font-black leading-none calendar-number" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f;">11</div>
+            <div class="text-6xl font-black leading-none calendar-number" style="color: #1E3A5F;">11</div>
             <div class="text-xl font-black uppercase text-gray-900 mt-2">October</div>
           </div>
         </article>
 
         <!-- Nov -->
         <article class="relative w-44 bg-white transform rotate-1 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
-          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #d32f2f;">
+          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #1E3A5F;">
             <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="text-xs font-bold text-white tracking-widest">2026</span>
           </div>
           <div class="py-6 text-center">
-            <div class="text-6xl font-black leading-none calendar-number" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f;">8</div>
+            <div class="text-6xl font-black leading-none calendar-number" style="color: #1E3A5F;">8</div>
             <div class="text-xl font-black uppercase text-gray-900 mt-2">November</div>
           </div>
         </article>
 
         <!-- Dec -->
         <article class="relative w-44 bg-white transform rotate-2 border-b-4 border-gray-200 rounded-2xl" style="box-shadow: 0 18px 48px 0 rgba(0,0,0,0.32), 0 4px 16px 0 rgba(0,0,0,0.22);">
-          <div class="w-full h-10 bg-red-600 flex items-center justify-center relative">
+          <div class="w-full h-10 flex items-center justify-center relative" style="background-color: #1E3A5F;">
             <span class="absolute left-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="absolute right-6 -top-2 w-3 h-5 bg-gray-100 rounded-full border border-gray-300 shadow-inner"></span>
             <span class="text-xs font-bold text-white tracking-widest">2026</span>
           </div>
           <div class="py-6 text-center">
-            <div class="text-6xl font-black leading-none calendar-number" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f;">13</div>
+            <div class="text-6xl font-black leading-none calendar-number" style="color: #1E3A5F;">13</div>
             <div class="text-xl font-black uppercase text-gray-900 mt-2">December</div>
           </div>
         </article>
@@ -301,10 +301,10 @@
 
     <!-- White Divider -->
     <div class="w-full h-8 bg-white"></div>
-    <section id="location" class="py-16 scroll-mt-24" style="background-color: #d32f2f;">
+    <section id="location" class="py-16 scroll-mt-24" style="background-color: #1E3A5F;">
       <div class="container mx-auto max-w-3xl">
-        <div class="bg-white rounded-3xl shadow-lg p-10 border-l-8 border-yellow-400">
-          <h2 class="text-3xl font-extrabold mb-4" style="font-family: 'Luckiest Guy', cursive; color: #d32f2f;">{{ page.location_heading }}</h2>
+        <div class="bg-white rounded-3xl shadow-lg p-10 border-l-8" style="border-left-color: #D4AF37;">
+          <h2 class="text-3xl font-extrabold mb-4" style="font-family: 'Playfair Display', serif; color: #1E3A5F;">{{ page.location_heading }}</h2>
           <div class="mb-8 text-lg text-gray-800">{{ page.location_text|richtext }}</div>
           {% if page.address %}
           <p class="mb-4 text-lg text-gray-900">
@@ -318,7 +318,7 @@
     </section>
 
     <!-- Facebook Posts (manual, three posts) -->
-    <section class="py-16" style="font-family: 'Luckiest Guy', cursive;">
+    <section class="py-16" style="font-family: 'Playfair Display', serif;">
       <div class="container mx-auto">
         <h2 class="text-2xl font-bold text-center mb-8">Latest Facebook Posts</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -344,10 +344,10 @@
     <div class="w-full h-8 bg-white"></div>
 
 
-    <section id="contact" class="bg-yellow-400 text-primary py-12 scroll-mt-24" style="font-family: 'Luckiest Guy', cursive;">
+    <section id="contact" class="py-12 scroll-mt-24" style="background-color: #1E3A5F; font-family: 'Merriweather', serif;">
       <div class="container mx-auto max-w-xl">
-        <h2 class="text-3xl font-bold mb-4">Contact</h2>
-        <form method="post" action="#" class="bg-white rounded-lg shadow-md p-8 space-y-6" style="font-family: 'Special Elite', cursive;">
+        <h2 class="text-3xl font-bold mb-4 text-white">Contact</h2>
+        <form method="post" action="#" class="bg-white rounded-lg shadow-md p-8 space-y-6" style="font-family: 'Merriweather', serif;">
           <div>
             <label for="name" class="block text-sm font-semibold mb-1">Name</label>
             <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary-soft" />
@@ -361,32 +361,32 @@
             <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary-soft"></textarea>
           </div>
           <div class="flex justify-center">
-            <button type="submit" class="text-white font-bold px-6 py-2 rounded shadow transition" style="background-color: #d32f2f;">Send</button>
+            <button type="submit" class="text-white font-bold px-6 py-2 rounded shadow transition" style="background-color: #D4AF37; color: #1E3A5F;">Send</button>
           </div>
         </form>
-        <div class="mt-8 text-lg text-center" style="font-family: 'Special Elite', cursive;">
+        <div class="mt-8 text-lg text-center text-white" style="font-family: 'Merriweather', serif;">
           <div class="mb-2 flex items-center justify-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="7" y="2" width="10" height="20" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><rect x="9" y="4" width="6" height="14" rx="1" ry="1" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="12" cy="19" r="1" fill="currentColor"/></svg>
-            <span class="font-bold">Mobile:</span> <a href="tel:07710592415" class="underline hover:text-red-700">07710 592415</a>
+            <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="7" y="2" width="10" height="20" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/><rect x="9" y="4" width="6" height="14" rx="1" ry="1" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="12" cy="19" r="1" fill="currentColor"/></svg>
+            <span class="font-bold">Mobile:</span> <a href="tel:07710592415" class="underline hover:text-gold-300">07710 592415</a>
           </div>
           <div class="flex items-center justify-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10.5l19-7-7 19-2.5-7L3 10.5z" /></svg>
-            <span class="font-bold">Email:</span> <a href="mailto:info@bitesizechurch.co.uk" class="underline hover:text-red-700">info@bitesizechurch.co.uk</a>
+            <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10.5l19-7-7 19-2.5-7L3 10.5z" /></svg>
+            <span class="font-bold">Email:</span> <a href="mailto:info@bitesizechurch.co.uk" class="underline hover:text-gold-300">info@bitesizechurch.co.uk</a>
           </div>
           <div class="flex items-center justify-center gap-2 mt-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-5 h-5 text-primary" viewBox="0 0 24 24" fill="currentColor"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>
-            <span class="font-bold">Facebook:</span> <a href="https://www.facebook.com/BitesizeChurchColshaw" target="_blank" rel="noopener" class="underline hover:text-red-700">Bitesize Church Colshaw</a>
+            <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>
+            <span class="font-bold">Facebook:</span> <a href="https://www.facebook.com/BitesizeChurchColshaw" target="_blank" rel="noopener" class="underline hover:text-gold-300">Bitesize Church Colshaw</a>
           </div>
         </div>
       </div>
     </section>
     
     <!-- Footer -->
-    <footer class="text-white py-16 mt-12 text-xl" style="background-color: #d32f2f;">
+    <footer class="text-white py-16 mt-12 text-xl" style="background-color: #1E3A5F;">
       <div class="container mx-auto flex justify-center px-8">
         <div class="flex flex-col items-center">
           {% if page.footer_text %}
-            <div class="footer-text text-lg text-center md:text-left" style="font-family: 'Special Elite', cursive;">
+            <div class="footer-text text-lg text-center md:text-left" style="font-family: 'Merriweather', serif;">
               {{ page.footer_text|richtext }}
             </div>
           {% endif %}
