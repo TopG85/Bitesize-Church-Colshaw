@@ -4,10 +4,17 @@
 
 This is a single-page website for Bitesize Church, a friendly and welcoming community church based in Colshaw. The site is built with Django, Wagtail, and Tailwind CSS, and is fully editable via the Wagtail admin interface.
 
-## Key Features & Recent Updates (14 April 2026)
+## Key Features & Recent Updates (20 April 2026)
 
+- **Navbar Scroll Reveal Logo:** Added a smooth scroll reveal animation to the navbar. The Bitesize Church logo fades in and slides from the left when scrolling past 100px or when the hero section leaves the viewport. Fades out when scrolling back to the top.
+- **Design Palette Branches:** Created three design variants in separate git branches for easy comparison:
+  - `design/professional-church-theme`: Red (#E63946), white backgrounds, light yellow accents
+  - `design/navy-gold-palette`: Navy (#1E3A5F), gold (#D4AF37) accents, white backgrounds
+  - `design/red-yellow-palette`: Red (#E63946), light yellow (#FFFACD) accents, white backgrounds
+- **Django 6.0+ Compatibility:** Fixed STORAGES configuration to properly handle WhiteNoise static file compression in production. Removed conflicting `STATICFILES_STORAGE` setting.
+- **Migration Dependencies:** Fixed invalid wagtailimages migration dependencies that were preventing the development server from starting.
 - **Favicon:** Added a favicon using the church logo (`382980107_153910111126206_2093967587040039248_n.webp`).
-- **Logo:** The logo is now centered in the hero section, while still being used as the favicon for consistent branding.
+- **Logo:** The logo is now centered in the hero section, while still being used as the favicon for consistent branding. Also appears in navbar on scroll.
 - **Hero Section:** Features a large hero image, centered logo, and a call-to-action button.
 - **About Section:** Explains what Bitesize Church is and what makes it unique.
 - **Why Bitesize? Section:** Added a new section explaining the name and approach, with a yellow background matching the contact section.
@@ -29,6 +36,30 @@ This is a single-page website for Bitesize Church, a friendly and welcoming comm
 	- Layout and typography are responsive for all devices.
 - **Wagtail Admin:**
 	- All content is editable via the Wagtail admin interface. No coding required for regular updates.
+
+## Running Different Design Variants
+
+To view and test different design palettes:
+
+```bash
+# Main branch (current production)
+git checkout main
+python manage.py runserver 8003
+
+# Professional Church theme (red/white/yellow)
+git checkout design/professional-church-theme
+python manage.py runserver 8003
+
+# Navy & Gold theme
+git checkout design/navy-gold-palette
+python manage.py runserver 8003
+
+# Red & Yellow theme
+git checkout design/red-yellow-palette
+python manage.py runserver 8003
+```
+
+After switching branches, refresh your browser to see the new design palette.
 
 ## How to Edit Content
 

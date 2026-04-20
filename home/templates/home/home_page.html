@@ -23,9 +23,29 @@
       html {
         scroll-behavior: smooth;
       }
+
+      #navbar-logo {
+        opacity: 0;
+        transform: translateX(-20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        pointer-events: none;
+      }
+
+      #navbar-logo.visible {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: auto;
+      }
     </style>
     <nav class="shadow-lg py-9 px-6 md:px-13 mb-0 text-lg sticky top-0 z-50" style="min-height: 7.75rem; background-color: #d32f2f; font-family: 'Special Elite', cursive;">
-      <div class="w-full max-w-none flex items-center justify-end">
+      <div class="w-full max-w-none flex items-center justify-between">
+        <!-- Logo appears on scroll -->
+        <img
+          id="navbar-logo"
+          src="{% static 'images/382980107_153910111126206_2093967587040039248_n.webp' %}"
+          alt="Bitesize Church Logo"
+          class="h-16 w-16 rounded-full border-2 border-white shadow-lg"
+        />
         <div class="flex gap-12 text-lg">
           <a href="#hero" class="text-white font-semibold transition-colors hover:underline">Home</a>
           <a href="#about" class="text-white font-semibold transition-colors hover:underline">About</a>
@@ -427,6 +447,25 @@
         }
       });
     });
+
+    // Navbar logo scroll reveal effect
+    const navbarLogo = document.getElementById('navbar-logo');
+    const heroSection = document.getElementById('hero');
+
+    function handleScroll() {
+      const scrollY = window.scrollY;
+      const heroRect = heroSection.getBoundingClientRect();
+      const heroBottom = heroRect.bottom;
+
+      // Show logo when scrolled past hero or when scroll > 100px
+      if (scrollY > 100 || heroBottom < 0) {
+        navbarLogo.classList.add('visible');
+      } else {
+        navbarLogo.classList.remove('visible');
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
 </script>
   </body>
 </html>
