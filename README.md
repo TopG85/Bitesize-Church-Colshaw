@@ -45,3 +45,9 @@ _Bring this up on screen or reference these notes during the session to guide th
 - [ ] Show the scroll-reveal sticky navigation bar functionality to prove responsiveness.
 - [ ] Log into `/admin` to demonstrate how non-technical marketing editors can update content blocks independently.
 - [ ] Switch Git layout branches to show structural multi-branch palette flexibility.
+
+### 3. Deployment, Ownership & SEO Logistics (Ask Imogen)
+
+- [ ] **Domain Name & Billing:** "Who currently owns the `bitesizechurch...` domain registrar account (e.g., GoDaddy, Namecheap)? We will need to set up direct billing so the church pays for the yearly renewal directly."
+- [ ] **Legal Ownership:** "Who is the official legal owner or trustee signed to the domain and hosting accounts for Bitesize?"
+- [ ] **Google Visibility & Search (SEO):** "Once the site is built, I will need access to the church's master Google account to hook up **Google Search Console** and **Google Analytics**. This ensures the rebrand maps properly, maps indexing requests, and can be discovered on Google searches seamlessly."
